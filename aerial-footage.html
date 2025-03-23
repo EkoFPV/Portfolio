@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerial Footage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Emil Kogler</h1>
+            </div>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">About</a></li>
+                    <li>
+                        <a href="index.html">Content</a>
+                        <ul class="dropdown">
+                            <li><a href="fpv-content.html">FPV Content</a></li>
+                            <li><a href="aerial-footage.html">Aerial Footage</a></li>
+                            <li><a href="festival-content.html">Festival Content</a></li>
+                            <li><a href="Musik-videos.html">Music videos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html#services">Services</a>
+                        
+                    </li>
+                    <li><a href="index.html#contact">Contact</a>
+                        <ul class="dropdown">
+                            <li><a href="mailto:eko.salzkammergut.fpv@gmail.com" target="_blank">Email</a></li>
+                            <li><a href="https://youtube.com/eko.fpv" target="_blank">YouTube</a></li>
+                            <li><a href="https://instagram.com/eko.fpv" target="_blank">Instagram</a></li>
+                            <li><a href="index.html#contact">Location</a></li>
+                        </ul></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Aerial Footage Section -->
+    <section id="aerial-footage">
+        <h1>Aerial Footage</h1>
+        <div class="media-row">
+            <!-- Landschaftsbilder -->
+            <div class="media-box">
+                <img src="Bild1.png" alt="Landscape 1">
+            </div>
+            <div class="media-box">
+                <img src="Bild2.png" alt="Landscape 2">
+            </div>
+            <div class="media-box">
+                <img src="Bild3.png" alt="Landscape 3">
+            </div>
+            <div class="media-box">
+                <img src="AerialBild4.png" alt="Landscape 4">
+            </div>
+            <div class="media-box">
+                <img src="AerialBild5.png" alt="Landscape 5">
+            </div>
+            <div class="media-box">
+                <img src="AerialBild6.png" alt="Landscape 6">
+            </div>
+        </div>
+
+        <div class="media-row">
+            <!-- Landschaftsvideos -->
+            <div class="media-box">
+                <video controls>
+                    <source src="Video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-box">
+                <video controls>
+                    <source src="Video5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-box">
+                <video controls>
+                    <source src="Video6.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('.main-nav ul');
+    
+        // Hamburger-Menü öffnen und schließen
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    
+        // Menü schließen beim Scrollen
+        window.addEventListener('scroll', () => {
+            nav.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

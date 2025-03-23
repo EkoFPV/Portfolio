@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musik Videos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Emil Kogler</h1>
+            </div>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li>
+                        <a href="index.html#content">Content</a>
+                        <ul class="dropdown">
+                            <li><a href="fpv-content.html">FPV Content</a></li>
+                            <li><a href="aerial-footage.html">Aerial Footage</a></li>
+                            <li><a href="festival-content.html">Festival Content</a></li>
+                            <li><a href="musik-videos.html">Music Videos</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="index.html#services">Services</a>
+                        
+                    </li>
+                    <li><a href="index.html">Contact</a>
+                        <ul class="dropdown">
+                            <li><a href="mailto:eko.salzkammergut.fpv@gmail.com" target="_blank">Email</a></li>
+                            <li><a href="https://youtube.com/eko.fpv" target="_blank">YouTube</a></li>
+                            <li><a href="https://instagram.com/eko.fpv" target="_blank">Instagram</a></li>
+                            <li><a href="index.html">Location</a></li>
+                        </ul></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="musik-videos">
+        <h1>Musik Videos</h1>
+        <div class="media-row">
+            <div class="media-box">
+                <img src="MusikBild1.png" alt="Musik Video Bild 1">
+            </div>
+            <div class="media-box">
+                <img src="MusikBild2.png" alt="Musik Video Bild 2">
+            </div>
+            <div class="media-box">
+                <img src="MusikBild3.png" alt="Musik Video Bild 3">
+            </div>
+        </div>
+
+        <div class="media-row">
+            <div class="media-box">
+                <video controls>
+                    <source src="MusikVideo1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="media-box">
+                <video controls>
+                    <source src="MusikVideo2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('.main-nav ul');
+    
+        // Hamburger-Menü öffnen und schließen
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    
+        // Menü schließen beim Scrollen
+        window.addEventListener('scroll', () => {
+            nav.classList.remove('show');
+        });
+    </script>
+</body>
+</html>
