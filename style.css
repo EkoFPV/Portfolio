@@ -80,12 +80,13 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 1;
 }
 
 #home h2 {
     font-size: 78px;
     text-align: center;
-    color: #000000; 
+    color: #ffffff; 
     margin: 0; 
 }
 #aerial-footage h2, 
@@ -578,6 +579,7 @@ p {
     height: 100%;
     border: none;
 }
+
 .video-box {
     width: 400px; 
     height: 225px; 
@@ -589,6 +591,18 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* YouTube-Boxen auf der FPV-Content-Seite im 16:9 Format */
+#fpv-content .horizontal-videos .video-box {
+    width: 400px;
+    height: 225px;
+}
+
+/* Instagram-Reels im 9:16 Format */
+#fpv-content .vertical-videos .video-box {
+    width: 300px;
+    height: 533px; /* 300 * 16 / 9 */
 }
 
 .video-box img {
@@ -768,13 +782,37 @@ p {
     background: rgba(0, 0, 0, 0.5); 
     border-radius: 8px;
 }
+    
+
 .video-box iframe,
-.video-box video {
+.video-box video,
+.video-box blockquote {
     width: 100%;
     height: 100%;
     border: none;
     border-radius: 8px;
 }
+#fpv-content {
+    /* height: 100vh; */ /* auskommentieren oder löschen */
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+/* Spezielles Styling nur für FPV Content Seite */
+.fpv-content-page #fpv-content .video-row .video-box {
+    aspect-ratio: 9 / 16;
+    max-width: 300px;
+    height: auto;
+}
+
+.fpv-content-page #fpv-content .video-row .video-box iframe,
+.fpv-content-page #fpv-content .video-row .video-box blockquote {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
 /* Aerial Footage Hintergrund */
 #aerial-footage {
     background: url('Hintergrundbild4.png') no-repeat center center/cover;
@@ -1048,4 +1086,33 @@ p {
         height: auto; 
         object-fit: contain;
     }
+}
+/* ---- Korrekte Größen für Videos auf der FPV-Content-Seite ---- */
+.fpv-content-page .horizontal-videos .video-box {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+.fpv-content-page .horizontal-videos .video-box iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Instagram Reels (9:16) */
+.fpv-content-page .vertical-videos .video-box {
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.fpv-content-page .vertical-videos .video-box blockquote {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
