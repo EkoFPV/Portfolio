@@ -281,7 +281,7 @@ p {
 /* Aerial Footage Sektion */
 /* Aerial Footage Hintergrund */
 #aerial-footage {
-    height: 100vh;
+    height: 100svh;
     background: url('Hintergrundbild4.png') no-repeat center center/cover;
     padding: 250px; 
     text-align: center;
