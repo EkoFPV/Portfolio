@@ -283,7 +283,7 @@ p {
 #aerial-footage {
     height: 100vh;
     background: url('Hintergrundbild4.png') no-repeat center center/cover;
-    padding: 250px 50px; 
+    padding: 250px; 
     text-align: center;
     color: #fff;
     position: relative;
