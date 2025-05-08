@@ -161,12 +161,14 @@ p {
 /* Video Content Sektion */
 #content {   
     background: url('Hintergrundbild3.png') no-repeat center center/cover;
-    height: 100vh;
+   /*height: 100vh;*/
+   min-height: auto !important;
+   padding: 40px 20px;
+  overflow: hidden;      /* stellt sicher, dass nicht drüber hinausragt */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
     color: #fff;
 }
 
@@ -875,6 +877,7 @@ p {
     padding: 80px 20px;
     text-align: center;
     color: #fff;
+    min-height: 100vh;
 }
 
 #festival-content h1 {
@@ -1086,13 +1089,40 @@ p {
         object-fit: contain;
     }
 }
+/* 2) Neue, flexible Aspect-Ratio-Regeln (Desktop) */
+.fpv-content-page #fpv-content .horizontal-videos .video-box {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 500px;    /* Desktop-Max für YouTube */
+  }
+  .fpv-content-page #fpv-content .vertical-videos .video-box {
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 300px;    /* Desktop-Max für Instagram */
+  }
+  
+  /* ────────────────────────────────────────── */
+  /* 3) Mobile-Override (<768px): alle Videos 90% Breite, untereinander */
+  @media (max-width: 768px) {
+    .fpv-content-page #fpv-content .video-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .fpv-content-page #fpv-content .video-row .video-box {
+      width: 90% !important;
+      max-width: none !important;
+      height: auto;          /* Höhe passt sich via aspect-ratio an */
+    }
+  }
 /* ---- Korrekte Größen für Videos auf der FPV-Content-Seite ---- */
-.fpv-content-page .horizontal-videos .video-box {
+/*.fpv-content-page .horizontal-videos .video-box {
     aspect-ratio: 16 / 9;
     width: 100%;
     max-width: 500px;
     height: auto;
-}
+} */
 
 .fpv-content-page .horizontal-videos .video-box iframe {
     width: 100%;
@@ -1102,12 +1132,12 @@ p {
 }
 
 /* Instagram Reels (9:16) */
-.fpv-content-page .vertical-videos .video-box {
+/*.fpv-content-page .vertical-videos .video-box {
     aspect-ratio: 9 / 16;
     width: 100%;
     max-width: 300px;
     height: auto;
-}
+}*/
 
 .fpv-content-page .vertical-videos .video-box blockquote {
     width: 100%;
@@ -1115,3 +1145,44 @@ p {
     object-fit: cover;
     border-radius: 8px;
 }
+/* ────────────────────────────────────────── */
+/* FIX YouTube-Videos auf index.html (Mobile) */
+/* ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    /* 1) Container Höhe auto statt starr */
+    #content .video-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      height: auto !important;      /* vorher: 500px */
+    }
+  
+    /* 2) Video-Box Breite und Höhe flexibel */
+    #content .video-box {
+      width: 90% !important;
+      max-width: 600px;             /* Desktop-Max bleibt erhalten */
+      aspect-ratio: 16 / 9;
+      overflow: visible !important; /* Player-Leiste sichtbar machen */
+    }
+  
+    /* 3) Iframe komplett einpassen, Controls sichtbar */
+    #content .video-box iframe {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important; 
+    }
+  }
+  /* ═══════════════════════════════════════ */
+/* Scroll-Reveal Effekt                   */
+/* ═══════════════════════════════════════ */
+.reveal {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
