@@ -1186,3 +1186,20 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+.impressum {
+    background-color: #111;
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 1px solid #333;
+}
+
+.impressum a {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.impressum a:hover {
+    color: #fff;
+}
