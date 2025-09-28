@@ -1,98 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festival Content</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Festival Content</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Emil Kogler</h1>
-            </div>
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li>
-                        <a href="index.html#content">Content</a>
-                        <ul class="dropdown">
-                            <li><a href="fpv-content.html">FPV Content</a></li>
-                            <li><a href="aerial-footage.html">Aerial Footage</a></li>
-                            <li><a href="festival-content.html">Festival Content</a></li>
-                            <li><a href="musik-videos.html">Music Videos</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="index.html#services">Services</a>
-                    </li>
-                    <li><a href="index.html#contact">Contact</a>
-                        <ul class="dropdown">
-                            <li><a href="mailto:eko.salzkammergut.fpv@gmail.com" target="_blank">Email</a></li>
-                            <li><a href="https://youtube.com/eko.fpv" target="_blank">YouTube</a></li>
-                            <li><a href="https://instagram.com/eko.fpv" target="_blank">Instagram</a></li>
-                            <li><a href="index.html#contact">Location</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Emil Kogler</h1>
+      </div>
 
-    <!-- Festival Content Section -->
-    <section id="festival-content">
-        <h1>Festival Content</h1>
-        <div class="media-row">
-            <!-- Fotos -->
-            <div class="media-box">
-                <img src="FestivalBild1.png" alt="Festival Bild 1">
-            </div>
-            <div class="media-box">
-                <img src="FestivaBild2.jpg" alt="Festival Bild 2">
-            </div>
-            <div class="media-box">
-                <img src="FestivalBild3.png" alt="Festival Bild 3">
-            </div>
-        </div>
+      <div class="hamburger-menu">
+        <span></span><span></span><span></span>
+      </div>
 
-        <div class="media-row">
-            <!-- Videos -->
-            <div class="media-box">
-                <video controls>
-                    <source src="FestivalVideo1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="media-box">
-                <video controls>
-                    <source src="FestivalVideo2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const nav = document.querySelector('.main-nav ul');
-    
-        // Hamburger-Menü öffnen und schließen
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('show');
-        });
-    
-        // Menü schließen beim Scrollen
-        window.addEventListener('scroll', () => {
-            nav.classList.remove('show');
-        });
-    </script>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li>
+            <a href="index.html#content">Content</a>
+            <ul class="dropdown">
+              <li><a href="fpv-content.html">FPV Content</a></li>
+              <li><a href="aerial-footage.html">Aerial Footage</a></li>
+              <li><a href="festival-content.html">Festival Content</a></li>
+              <li><a href="musik-videos.html">Music Videos</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#services">Services</a></li>
+          <li>
+            <a href="index.html#contact">Contact</a>
+            <ul class="dropdown">
+              <li><a href="mailto:eko.salzkammergut.fpv@gmail.com" target="_blank">Email</a></li>
+              <li><a href="https://youtube.com/eko.fpv" target="_blank">YouTube</a></li>
+              <li><a href="https://instagram.com/eko.fpv" target="_blank">Instagram</a></li>
+              <li><a href="index.html#contact">Location</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Festival Content -->
+  <section id="festival-content">
+    <!-- HERO: H1 liegt auf dem 1. Hintergrund -->
+  <div id="festival-hero">
+    <h1 class="hero-title">FESTIVAL CONTENT</h1>
+
+    <!-- 3 Fotos -->
+    <div class="media-row">
+      <div class="media-box">
+        <img src="FestivalBild1.png" alt="Festival Bild 1">
+      </div>
+      <div class="media-box">
+        <img src="FestivaBild2.jpg" alt="Festival Bild 2">
+      </div>
+      <div class="media-box">
+        <img src="FestivalBild3.png" alt="Festival Bild 3">
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEOS: H2 + Grid auf 2. Hintergrund -->
+  <div id="festival-videos" class="festival-bg-2">
+    <h2 class="yt-title">PLANET FESTIVAL TOUR FINALE</h2>
+
+    <div class="media-row">
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/gE64wFezidM" title="Festival Video 1" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/W7curiGNVBM" title="Festival Video 2" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/PZIqPmTBdUU" title="Festival Video 3" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="media-row">
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/ituqpUmBuyM" title="Festival Video 4" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/789rVr16GGo" title="Festival Video 5" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/dLUhPcP2Hu8" title="Festival Video 6" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="media-row">
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/oO-CICBfIKg" title="Festival Video 7" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/auuQ-rerCkM" title="Festival Video 8" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/y46NU6WGAuA" title="Festival Video 9" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="media-row">
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/HlhY3GHAx_U" title="Festival Video 10" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/lUDQpx7PFhU" title="Festival Video 11" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="media-box">
+        <iframe src="https://www.youtube.com/embed/Ui4fzINI6Zg" title="Festival Video 12" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('.main-nav ul');
+    hamburger.addEventListener('click', () => nav.classList.toggle('show'));
+    window.addEventListener('scroll', () => nav.classList.remove('show'));
+  </script>
 </body>
 </html>
