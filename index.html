@@ -10,7 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<!--  Preload  -->
+    <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading">
+        <div class="prop-spinner" aria-hidden="true">
+            <div class="blade b1"></div>
+            <div class="blade b2"></div>
+            <div class="blade b3"></div>
+            <div class="hub"></div>
+        </div>
+    </div>
     <!-- Kopfzeile -->
     <header>
 </div>
@@ -224,36 +232,75 @@
     </div>
 </section>
 <script>
-    const hamburger = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('.main-nav ul');
+        /* === Preloader: wartet bis ALLE YouTube-Iframes geladen sind === */
+        document.addEventListener('DOMContentLoaded', () => {
+            const pre = document.getElementById('preloader');
+            document.body.classList.add('preload-lock');
 
-    // Hamburger-Menü öffnen und schließen
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('show');
-    });
+            // alle YouTube-Embeds auf der Startseite (#content + #final-section)
+            const iframes = Array.from(document.querySelectorAll('iframe[src*="youtube.com"]'));
 
-    // Menü schließen beim Scrollen
-    window.addEventListener('scroll', () => {
-        nav.classList.remove('show');
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            // optional: nur einmal reveal, dann unobserve
-            observer.unobserve(entry.target);
-          }
+            // wenn keine vorhanden: normal beim window.load ausblenden
+            if (iframes.length === 0) {
+                window.addEventListener('load', done);
+                return;
+            }
+
+            let pending = iframes.length;
+            const restore = [];
+
+            // 1) src parken, 2) load-Listener setzen, 3) später wieder src setzen
+            iframes.forEach(f => {
+                const s = f.getAttribute('src');
+                restore.push([f, s]);
+                f.removeAttribute('src');
+                f.addEventListener('load', onFrameLoaded, { once: true });
+            });
+
+            // Start des tatsächlichen Ladens im nächsten Frame
+            requestAnimationFrame(() => restore.forEach(([f, s]) => f.setAttribute('src', s)));
+
+            // Fallback, falls einzelne Embeds extrem trödeln
+            const fallback = setTimeout(done, 10000);
+
+            function onFrameLoaded() {
+                pending--;
+                if (pending <= 0) {
+                    clearTimeout(fallback);
+                    done();
+                }
+            }
+
+            function done() {
+                if (!pre) return;
+                pre.classList.add('hidden');
+                document.body.classList.remove('preload-lock');
+                setTimeout(() => pre.remove(), 500);
+            }
         });
-      }, { threshold: 0.2 });
-  
-      document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-      });
-    });
-  </script>
+
+        /* === Dein Menü (unverändert) === */
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('.main-nav ul');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => nav.classList.toggle('show'));
+            window.addEventListener('scroll', () => nav.classList.remove('show'));
+        }
+
+        /* === Reveal Animation (unverändert) === */
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
      <!-- Impressum -->
 <footer class="impressum">
     <p><strong>Impressum</strong> – Emil Kogler, Salzburg / Wien,  
