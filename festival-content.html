@@ -8,6 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading">
+        <div class="prop-spinner" aria-hidden="true">
+            <div class="blade b1"></div>
+            <div class="blade b2"></div>
+            <div class="blade b3"></div>
+            <div class="hub"></div>
+        </div>
+    </div>
+
   <!-- Navigation -->
   <header>
     <div class="container">
@@ -158,10 +167,57 @@
 </section>
 
   <script>
-    const hamburger = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('.main-nav ul');
-    hamburger.addEventListener('click', () => nav.classList.toggle('show'));
-    window.addEventListener('scroll', () => nav.classList.remove('show'));
-  </script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pre = document.getElementById('preloader');
+            document.body.classList.add('preload-lock');
+
+            // YouTube + NoCookie
+            const iframes = Array.from(document.querySelectorAll(
+                'iframe[src*="youtube.com"], iframe[src*="youtube-nocookie.com"]'
+            ));
+
+            if (iframes.length === 0) {
+                window.addEventListener('load', done);
+                return;
+            }
+
+            let pending = iframes.length;
+            const restore = [];
+
+            iframes.forEach(f => {
+                const s = f.getAttribute('src');
+                restore.push([f, s]);
+                f.removeAttribute('src');
+                f.addEventListener('load', onFrameLoaded, { once: true });
+            });
+
+            requestAnimationFrame(() => restore.forEach(([f, s]) => f.setAttribute('src', s)));
+
+            const fallback = setTimeout(done, 10000);
+
+            function onFrameLoaded() {
+                pending--;
+                if (pending <= 0) {
+                    clearTimeout(fallback);
+                    done();
+                }
+            }
+
+            function done() {
+                if (!pre) return;
+                pre.classList.add('hidden');
+                document.body.classList.remove('preload-lock');
+                setTimeout(() => pre.remove(), 500);
+            }
+        });
+
+        // Menü bleibt wie gehabt
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('.main-nav ul');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => nav.classList.toggle('show'));
+            window.addEventListener('scroll', () => nav.classList.remove('show'));
+        }
+    </script>
 </body>
 </html>
