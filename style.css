@@ -1209,3 +1209,89 @@ p {
 .impressum a:hover {
     color: #fff;
 }
+
+
+/* === Propeller-Preloader (3-Blatt) === */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: #17121200;
+    display: grid;
+    place-items: center;
+    z-index: 2000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .4s ease, visibility .4s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.preload-lock {
+    overflow: hidden;
+}
+
+/* Neuer Propeller */
+.prop-spinner{
+  position: relative;
+  width: 90px; height: 90px;
+  animation: prop-spin .9s linear infinite;
+  will-change: transform;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+
+/* Blatt: schlankere Wurzel, spitze Spitze, leichte Krümmung */
+.prop-spinner .blade{
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 18px;               /* Blattbreite */
+  height: 58px;              /* Blattlänge */
+  transform-origin: 50% 90%; /* Drehzentrum nahe Nabe */
+  transform: translate(-50%,-90%) rotate(0deg);
+  background: linear-gradient(180deg,#f3f3f37b 0%,#cfcfcf6a 18%,#3535355e 60%,#11111174 100%);
+  /* Grundwölbung */
+  border-radius: 40% 40% 30% 30% / 70% 70% 22% 22%;
+  /* Form geben: tropfenförmig mit schlanker Wurzel */
+  clip-path: polygon(
+     50% 0%, 61% 6%, 86% 28%, 78% 52%,
+     60% 82%, 52% 100%,
+     48% 100%, 40% 82%, 22% 52%, 14% 28%, 39% 6%
+  );
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,.45);
+}
+
+/* Glanzkante auf der „leading edge“ */
+.prop-spinner .blade::after{
+  content:"";
+  position:absolute; inset: 8% 35% 28% 35%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.486), rgba(255, 255, 255, 0));
+  filter: blur(1px);
+  border-radius: 50% / 70%;
+  transform: translateY(-4%);
+  pointer-events:none;
+}
+
+/* Drei Blätter wie gehabt */
+.prop-spinner .b1{ transform: translate(-50%,-90%) rotate(0deg); }
+.prop-spinner .b2{ transform: translate(-50%,-90%) rotate(120deg); }
+.prop-spinner .b3{ transform: translate(-50%,-90%) rotate(240deg); }
+
+/* Nabe in der Mitte */
+.prop-spinner .hub{
+  position:absolute; top:50%; left:50%;
+  width: 16px; height: 16px;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle at 45% 45%, #eaeaea 0 35%, #ffffffa2 60%, #ffffff97 100%);
+  border-radius:50%;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.399) inset;
+}
+
+/* Rotation */
+@keyframes prop-spin{ to { transform: rotate(360deg); } }
+
+/* Barrierefreiheit: langsamer drehen bei reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .prop-spinner{ animation-duration: 3s; }
+}
