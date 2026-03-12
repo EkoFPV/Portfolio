@@ -964,14 +964,14 @@ p {
 /* =========================
    SHUTDOWN FESTIVAL LAYOUT
 ========================= */
-
+.project-section:first-of-type{
+    padding-top:140px;
+}
 .project-section {
     background:#0b0b0b;
     padding:60px 20px;
 }
-project-section:first-of-type{
-    padding-top:140px;
-}
+
 /* Titelbereich */
 
 .project-header{
