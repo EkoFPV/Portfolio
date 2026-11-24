@@ -355,3 +355,19 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
  .festival-credit { font-size:13px; padding-inline:10px; }
  #planet-festival-tour-2026 .festival-credit { margin-bottom:45px; }
 }
+
+/* Consistent hierarchy for project collections and translated navigation. */
+@media(min-width:901px) {
+ header .container { width:min(1280px,calc(100% - 64px)); }
+ .main-nav > ul { gap:clamp(14px,1.7vw,25px); }
+ .main-nav ul li a { font-size:15px; white-space:nowrap; }
+}
+.festival-film-grid .festival-featured { grid-column:span 2; }
+.festival-film-grid .festival-featured .media-box { max-width:none; }
+.festival-film-grid .festival-featured .video-caption { font-size:21px; }
+@media(max-width:600px) {
+ .festival-film-grid .festival-featured { grid-column:auto; }
+ .festival-film-grid .festival-featured .video-caption { font-size:19px; }
+ .festival-film-grid { row-gap:42px; }
+ .festival-credit { max-width:420px; margin-inline:auto; line-height:1.9; }
+}

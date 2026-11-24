@@ -192,71 +192,39 @@
  .homepage-trial .project-detail-link::after,.homepage-trial .hero-project-link::after,.service-equipment-link::after { transition:none; }
 }
 
-/* A single, spacious portfolio overview, without duplicate project previews. */
-.homepage-trial #content.work-overview { display:flex; flex-direction:column; justify-content:center; }
-.homepage-trial #content .work-categories { margin:0 auto; }
-
-/* Trial: soften only the seam, with no transparent image layers. */
+/* Portfolio: one coherent surface and uniform landscape cards. */
 .homepage-trial #content.work-overview {
- position:relative; isolation:isolate;
- background-image:linear-gradient(#08080840,#08080870),url('Hintergrundbild4.png');
+ position:relative; isolation:isolate; display:flex; flex-direction:column;
+ justify-content:center; padding:clamp(80px,9vw,140px) 40px;
+ background:linear-gradient(#08080859,#08080880),url('Hintergrundbild3.png') center center/cover no-repeat;
 }
 .homepage-trial #content .content-header,.homepage-trial #content .work-categories { position:relative; z-index:1; }
-
-/* Portfolio trial: four edge-to-edge film covers. */
-.homepage-trial .work-categories { gap:26px; }
-.homepage-trial .work-category { position:relative; isolation:isolate; overflow:hidden; background:#171717; color:#fff; aspect-ratio:3/4; }
-.homepage-trial .work-category .category-image { position:absolute; inset:0; aspect-ratio:auto; }
-.homepage-trial .work-category::after { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(transparent 45%,rgba(0,0,0,.25) 65%,rgba(0,0,0,.85)); }
-.homepage-trial .work-category h3 { position:absolute; z-index:2; left:22px; right:55px; bottom:26px; display:block; padding:0; margin:0; min-height:0; font-size:18px; line-height:1.5; text-align:left; font-weight:400; text-shadow:0 2px 8px #0008; }
-.homepage-trial .work-category:hover h3 { text-decoration:none; }
-.category-arrow { position:absolute; z-index:2; right:22px; bottom:26px; font-family:Arial,sans-serif; font-size:26px; line-height:1; transition:transform 450ms cubic-bezier(.22,1,.36,1); }
-.homepage-trial .work-category:focus-visible { outline:2px solid #fff; outline-offset:5px; }
-@media(hover:hover) and (pointer:fine) {
- .work-category:hover .category-arrow { transform:translate(3px,-3px); }
-}
-@media(max-width:1000px) {
- .homepage-trial .work-categories { gap:22px; }
- .homepage-trial .work-category { aspect-ratio:4/5; }
-}
-@media(max-width:600px) {
- .homepage-trial .work-categories { gap:16px 14px; }
- .homepage-trial .work-category { aspect-ratio:3/4; }
- .homepage-trial .work-category h3 { left:12px; right:12px; bottom:16px; font-size:clamp(11px,2.8vw,15px); }
- .category-arrow { top:14px; bottom:auto; right:13px; font-size:22px; text-shadow:0 1px 8px #000; }
-}
-@media(prefers-reduced-motion:reduce) {
- .category-arrow { transition:none; }
-}
-
-/* Landscape portfolio preview: preserve each complete photograph. */
-.homepage-trial .work-category { aspect-ratio:auto; overflow:hidden; background:#f7f7f7; color:#171717; }
-.homepage-trial .work-category .category-image { position:relative; inset:auto; aspect-ratio:4/3; background:#171717; }
-.homepage-trial .work-category .category-image img { object-fit:contain; }
-.homepage-trial .work-category::after { display:none; }
-.homepage-trial .work-category h3 { position:relative; inset:auto; min-height:72px; display:flex; align-items:center; padding:18px 44px 18px 20px; font-size:16px; text-shadow:none; }
-.homepage-trial .category-arrow { top:auto; right:18px; bottom:25px; font-size:22px; text-shadow:none; }
-@media(hover:hover) and (pointer:fine) {
- .homepage-trial .work-category:hover .category-image img { transform:none; }
-}
-@media(max-width:600px) {
- .homepage-trial .work-category .category-image { aspect-ratio:4/3; }
- .homepage-trial .work-category h3 { min-height:64px; padding:12px 26px 12px 10px; font-size:11px; }
- .homepage-trial .category-arrow { top:auto; right:9px; bottom:24px; font-size:17px; }
-}
-/* Preserve the full image; extend its colours softly into unused space. */
-.homepage-trial .work-category .category-image { background:#ccc; }
-.homepage-trial .work-category .category-image::before { content:''; position:absolute; inset:-12px; background-image:var(--cover-photo); background-position:center; background-size:cover; filter:blur(10px); opacity:.7; }
-.homepage-trial .work-category .category-image img { position:relative; z-index:1; }
-
-/* Uniform landscape thumbnails with deliberate crops, no blurred side fills. */
-.homepage-trial .work-category .category-image { aspect-ratio:4/3; background:#171717; }
-.homepage-trial .work-category .category-image::before { display:none; }
+.homepage-trial #content .content-header h2 { margin:0 auto clamp(36px,5vw,64px); text-shadow:0 2px 14px #0008; }
+.homepage-trial #content .work-categories { margin:0 auto; gap:26px; }
+.homepage-trial .work-category { position:relative; overflow:hidden; background:#f7f7f7; color:#171717; }
+.homepage-trial .work-category .category-image { position:relative; aspect-ratio:4/3; background:#171717; }
 .homepage-trial .work-category .category-image img { object-fit:cover; object-position:center; }
 .homepage-trial .work-category:nth-child(1) .category-image img { object-position:50% 55%; }
 .homepage-trial .work-category:nth-child(2) .category-image img { object-position:50% 48%; }
 .homepage-trial .work-category:nth-child(3) .category-image img { object-position:50% 62%; }
-.homepage-trial .work-category:nth-child(4) .category-image img { object-position:50% 50%; }
-
-/* Vector icons remain consistent on mobile and desktop. */
-.category-arrow { display:block; width:1em; height:1em; }
+.homepage-trial .work-category h3 { min-height:76px; margin:0; padding:18px 44px 18px 20px; font-size:16px; line-height:1.5; font-weight:400; text-align:left; justify-content:flex-start; }
+.category-arrow { display:block; position:absolute; width:22px; height:22px; right:17px; bottom:27px; transition:transform 450ms cubic-bezier(.22,1,.36,1); }
+.homepage-trial .work-category:focus-visible { outline:2px solid #fff; outline-offset:5px; }
+@media(hover:hover) and (pointer:fine) {
+ .work-category:hover .category-arrow { transform:translate(3px,-3px); }
+ .homepage-trial .work-category:hover .category-image img { transform:scale(1.035); }
+}
+@media(max-width:1000px) { .homepage-trial #content .work-categories { gap:24px; } }
+@media(max-width:600px) {
+ .homepage-trial #content.work-overview { min-height:0 !important; padding:64px 22px 72px; background-position:center center; }
+ .homepage-trial #content .content-header h2 { margin:0 auto 32px; font-size:30px; }
+ .homepage-trial #content .work-categories { grid-template-columns:minmax(0,1fr); width:min(440px,100%); gap:28px; }
+ .homepage-trial .work-category { transform:none !important; }
+ .homepage-trial .work-category h3 { min-height:72px; font-size:16px; padding:18px 48px 18px 20px; }
+ .category-arrow { width:23px; height:23px; right:19px; bottom:24px; }
+ .homepage-trial #about,.homepage-trial #services,.homepage-trial #contact { min-height:0 !important; padding-block:64px; }
+ .homepage-trial #about .about-content,.homepage-trial #contact .contact-content { padding:40px 24px; }
+ .homepage-trial #services .services-content { padding-top:40px; padding-bottom:40px; }
+ .service-summary-grid { margin-block:36px 40px; gap:32px; }
+}
+@media(prefers-reduced-motion:reduce) { .category-arrow { transition:none; } }

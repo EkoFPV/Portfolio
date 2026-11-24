@@ -15,7 +15,7 @@ function setSubmenu(open) {
 }
 function setMenu(open, restoreFocus = false) {
   menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.querySelector('.menu-label').textContent = open ? 'Close' : 'Menu';
+  menuButton.querySelector('.menu-label').textContent = open ? 'Schließen' : 'Menü';
   nav.classList.toggle('is-open', open);
   document.body.classList.toggle('menu-open', open);
   backdrop.hidden = !open;
