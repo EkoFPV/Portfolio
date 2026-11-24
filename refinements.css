@@ -1,0 +1,357 @@
+/* Original design, unified type, consistent media and responsive navigation. */
+:root { --font: 'Julius Sans One', Arial, sans-serif; --header-height: 88px; --media-radius: 8px; }
+html { scroll-padding-top: calc(var(--header-height) + 20px); }
+body { font-family: var(--font); background: #0b0b0b; line-height: 1.7; }
+body, h1, h2, h3, h4, p, a, li, button, summary, input { font-family: var(--font) !important; }
+h1, h2, h3 { font-style: normal; font-weight: 400; letter-spacing: .035em; line-height: 1.3; }
+p, li { line-height: 1.8; }
+img, video, iframe { max-width: 100%; }
+a:focus-visible, button:focus-visible, video:focus-visible { outline: 2px solid #b9cd8d; outline-offset: 4px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.skip-link { position: fixed; top: -100px; left: 15px; z-index: 1100; background: #fff; color: #111; padding: 10px; }
+.skip-link:focus { top: 10px; }
+header { padding: 0; min-height: var(--header-height); background: rgba(0,0,0,.82); }
+header .container { min-height: var(--header-height); width: min(1200px, calc(100% - 64px)); flex-direction: row; gap: 24px; }
+header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight: 400; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.main-nav { padding: 0; position: static; }
+.main-nav > ul { display: flex; flex-direction: row; align-items: center; gap: 25px; width: auto; margin: 0; padding: 0; position: static; background: transparent; }
+.main-nav > ul > li { margin: 0; }
+.main-nav ul li a { font-weight: 400; padding: 10px 0; font-size: 16px; }
+.nav-group { display: flex; align-items: center; gap: 5px; }
+.submenu-toggle { display: none; background: none; border: 0; width: 36px; min-height: 44px; padding: 0; font-size: 24px; }
+.js .submenu-toggle { display: inline-grid; place-items: center; }
+.main-nav ul li .dropdown { left: -18px; right: auto; top: 100%; width: 230px; padding: 10px; background: rgba(20,20,20,.97); border-radius: 4px; }
+.main-nav ul li .dropdown li a { padding: 12px; font-size: 14px; white-space: normal; }
+.js .main-nav ul li:hover .dropdown { display: none; }
+.js .main-nav ul li .dropdown.is-open { display: block; }
+.menu-toggle { display: none; }
+.menu-backdrop { position: fixed; inset: var(--header-height) 0 0; z-index: 900; background: rgba(0,0,0,.55); }
+.menu-backdrop[hidden] { display: none; }
+.menu-open { overflow: hidden; }
+#home { height: 100svh; min-height: 600px; max-height: 1100px; background-image: url('Hintergrundbild1.png'); }
+#home h1 { font-size: clamp(36px, 5.3vw, 78px); font-weight: 400; color: #fff; padding: 24px; }
+#about, #services, #contact { height: auto; min-height: 80svh; padding: 110px 0; }
+#about .about-content, #services .services-content, #contact .contact-content { width: 100%; max-width: none; padding: 50px 32px; border-radius: 0; }
+#about .about-content p, #services .services-content p { max-width: 960px; margin: 0 auto 20px; }
+#about .about-content p:last-child, #services .services-content p:last-child { margin-bottom: 0; }
+#about .about-content h2, #services .services-content h2, #contact .contact-content h2 { font-weight: 400; font-size: 36px; text-shadow: none; }
+#content, #aerial-footage { padding: 100px 32px; }
+#content .content-header h2 { margin: 0 0 40px; }
+#content .video-container, .media-row, #final-section .video-row, #fpv-content .video-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; height: auto; width: 100%; max-width: 1200px; margin: 0 auto; }
+.media-row + .media-row { margin-top: 24px; }
+#content .video-box, .media-box, #final-section .video-box, #fpv-content .horizontal-videos .video-box, .fpv-content-page #fpv-content .horizontal-videos .video-box { width: 100%; max-width: none; height: auto; min-width: 0; margin: 0; aspect-ratio: 16/9; border: 1px solid rgba(255,255,255,.55); border-radius: var(--media-radius); overflow: hidden; background: #111; }
+.media-box img, .media-box video, .media-box iframe, .video-box iframe, .video-box video, .video-box img, #content .video-box iframe { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; border-radius: 0; }
+#servicesraber { max-width: 1400px; margin: auto; background: #fff; }
+#servicesraber > div { height: auto; min-height: 360px; }
+#services-details .text { padding: 45px; max-width: none; }
+#services-details .image { aspect-ratio: 4/3; }
+#services-details .image img { object-fit: contain; background: #111; }
+#services-details .text p, #services-details .text h3 { font-weight: 400; }
+#contact .contact-content p { font-size: 17px; margin: 12px auto; max-width: 800px; }
+#contact .contact-content a { overflow-wrap: anywhere; font-weight: 400; }
+#final-section { padding: 50px 24px 25px; }
+.footer-nav ul { flex-direction: row; flex-wrap: wrap; margin-bottom: 30px; gap: 14px 28px; }
+.footer-nav ul li a { font-weight: 400; }
+.contact-info .icons { gap: 16px; align-items: center; }
+.contact-info .icons a { width: 52px; height: 52px; display: grid; place-items: center; padding: 10px; }
+.contact-info .icons img { width: 32px; height: 32px; object-fit: contain; border-radius: 0; }
+.contact-info a { color: inherit; text-decoration: none; }
+.contact-info p { font-size: 16px; }
+.footer-legal { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px; font-size: 12px; color: #555; }
+.footer-legal a { color: inherit; }
+#fpv-content, #festival-content, #music-videos { padding-top: calc(var(--header-height) + 55px); }
+#fpv-content h1, #aerial-footage h1, #music-videos h1 { margin: 0 0 40px; }
+#fpv-content .vertical-videos { margin-top: 35px; }
+.fpv-content-page #fpv-content .vertical-videos .video-box { width: 100%; max-width: 340px; height: auto; aspect-ratio: 9/16; margin-inline: auto; background: transparent; border: 0; }
+.instagram-media { min-width: 0 !important; width: 100% !important; }
+.project-section:first-of-type { padding-top: calc(var(--header-height) + 55px); }
+.project-header h1, .project-header h2 { font-size: 32px; font-weight: 400; margin-bottom: 20px; }
+.project-header p { font-size: 16px; }
+.film-grid, .dj-grid, .concert-grid, .shutdown-grid { width: 100%; max-width: 1000px; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin: 35px auto 0; }
+.camera-item, .film-grid .camera-item, .dj-grid .camera-item, .concert-grid .camera-item, .shutdown-grid .camera-item { border-radius: var(--media-radius); transform: none !important; min-width: 0; }
+.camera-item.portrait, .film-grid .camera-item.portrait, .dj-grid .camera-item.portrait, .concert-grid .camera-item.portrait, .shutdown-grid .camera-item.portrait { aspect-ratio: 3/4; }
+.camera-item img, .camera-item video { object-fit: contain !important; transform: none !important; }
+#festival-content { padding: 0; }
+#festival-hero { padding: calc(var(--header-height) + 55px) 32px 90px; }
+#festival-hero .hero-title { font-size: 36px; font-weight: 400; margin: 0 0 45px; }
+#festival-videos { padding: 70px 32px; }
+#festival-videos .yt-title { margin: 0 auto 40px; font-size: 32px; }
+#music-videos, .legal-page { min-height: 70svh; padding: calc(var(--header-height) + 65px) 24px 80px; text-align: center; }
+#music-videos p, .legal-page p { max-width: 720px; margin: 20px auto; }
+.music-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 35px; }
+.music-links a, #music-videos > a { color: #fff; padding: 12px; }
+.legal-page a { color: inherit; overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  :root { --header-height: 72px; }
+  header .container { width: calc(100% - 36px); flex-wrap: wrap; gap: 0; }
+  header .logo { font-size: 21px; }
+  .js .menu-toggle { display: flex; align-items: center; gap: 11px; min-height: 48px; padding: 10px 4px 10px 12px; background: none; border: 0; font-size: 14px; }
+  .menu-icon { display: block; width: 24px; height: 16px; border-top: 2px solid #fff; border-bottom: 2px solid #fff; position: relative; }
+  .menu-icon::after { content: ''; position: absolute; top: 5px; left: 0; width: 24px; border-top: 2px solid #fff; }
+  .menu-toggle[aria-expanded=true] .menu-icon { border: 0; }
+  .menu-toggle[aria-expanded=true] .menu-icon::before, .menu-toggle[aria-expanded=true] .menu-icon::after { content: ''; position: absolute; top: 7px; left: 0; width: 24px; border-top: 2px solid #fff; transform: rotate(45deg); }
+  .menu-toggle[aria-expanded=true] .menu-icon::after { transform: rotate(-45deg); }
+  .main-nav { width: 100%; right: auto; }
+  .js .main-nav { display: none; position: absolute; top: var(--header-height); right: 0; width: 100%; max-height: calc(100dvh - var(--header-height)); overflow-y: auto; overscroll-behavior: contain; background: rgba(0,0,0,.98); padding: 12px 22px 26px; border-top: 1px solid #ffffff30; }
+  .js .main-nav.is-open { display: block; }
+  .main-nav > ul { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .main-nav > ul > li { width: 100%; margin: 0; border-bottom: 1px solid #ffffff26; }
+  .main-nav ul li a { display: block; text-align: left; padding: 15px 4px; min-height: 48px; background: transparent; font-size: 16px; }
+  .nav-group { justify-content: space-between; }
+  .nav-group > a { flex: 1; }
+  .submenu-toggle { min-width: 52px; min-height: 52px; }
+  .main-nav ul li .dropdown { display: block; position: static; left: auto; width: 100%; padding: 4px 0 12px 18px; margin: 0; border-radius: 0; box-shadow: none; background: #191919; }
+  .js .main-nav ul li .dropdown { display: none; }
+  .js .main-nav ul li .dropdown.is-open { display: block; }
+  .main-nav ul li .dropdown li { margin: 0; }
+  .main-nav ul li .dropdown li a { font-size: 14px; padding: 14px 10px; }
+  #home { min-height: 550px; max-height: 950px; background-position: 53% center; }
+  #home h1 { font-size: clamp(32px, 7vw, 58px); }
+  #about, #services, #contact { min-height: 65svh; padding: 80px 0; }
+  #about .about-content, #services .services-content, #contact .contact-content { padding: 40px 26px; }
+  #content, #aerial-footage { padding: 75px 22px; }
+  #content .video-container, .media-row { gap: 18px; }
+  #services-details .text { padding: 30px; }
+}
+@media (max-width: 600px) {
+  header .logo { font-size: 19px; }
+  #home { min-height: 520px; background-size: auto 100%; background-color: #070707; }
+  #home h1 { font-size: clamp(30px, 8vw, 44px); padding-inline: 18px; }
+  #about .about-content h2, #services .services-content h2, #contact .contact-content h2, #content .content-header h2, #aerial-footage h2, #fpv-content h1, #aerial-footage h1, #festival-hero .hero-title, #festival-videos .yt-title, .project-header h1, .project-header h2 { font-size: 27px; line-height: 1.4; margin-bottom: 26px; }
+  #about .about-content p, #services .services-content p, #contact .contact-content p { font-size: 16px; line-height: 1.9; }
+  #content .video-container, .media-row, #final-section .video-row, #fpv-content .video-row { grid-template-columns: minmax(0,1fr); width: 100%; gap: 22px; }
+  #content .video-box, .media-box, #fpv-content .horizontal-videos .video-box, .fpv-content-page #fpv-content .video-row .video-box { width: 100% !important; max-width: 560px !important; height: auto; margin-inline: auto; }
+  #content .video-box iframe { height: 100% !important; }
+  #servicesraber { display: flex; flex-direction: column; }
+  #servicesraber > div { min-height: 0; width: 100%; }
+  #servicesraber > :nth-child(1) { order: 1; }
+  #servicesraber > :nth-child(2) { order: 2; }
+  #servicesraber > :nth-child(4) { order: 3; }
+  #servicesraber > :nth-child(3) { order: 4; }
+  #servicesraber > :nth-child(5) { order: 5; }
+  #servicesraber > :nth-child(6) { order: 6; }
+  #services-details .text { padding: 35px 24px; margin: 0; }
+  #services-details .image { aspect-ratio: 4/3; margin: 0; }
+  #services-details .text h3 { font-size: 23px; }
+  #services-details .text ul li { font-size: 16px; }
+  .film-grid, .dj-grid, .concert-grid, .shutdown-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .project-section { padding: 55px 18px; }
+  #festival-hero { padding-inline: 20px; padding-bottom: 60px; }
+  #festival-videos { padding: 60px 20px; }
+  .footer-nav ul { gap: 8px 18px; flex-direction: row; }
+  .footer-nav ul li a { display: block; padding-block: 8px; font-size: 14px; }
+  #contact .contact-content p { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+@media (max-width: 600px) {
+  #home { background-position: 43% center; }
+}
+
+/* Full-bleed service blocks: no outer gutters or letterboxing. */
+#services-details { background: #fff; overflow: hidden; }
+#servicesraber { width: 100%; max-width: none; margin: 0; gap: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#servicesraber > div { margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+#services-details .text { background: #fff; }
+#services-details .image { background: #fff; overflow: hidden; }
+#services-details .image img { display: block; width: 100%; height: 100%; object-fit: cover; background: #fff; border: 0; border-radius: 0; }
+/* One outline icon family, one stroke weight, one optical scale. */
+.contact-info .icons { gap: 24px; }
+.contact-info .icons a { display: grid; place-items: center; width: 48px; height: 48px; padding: 8px; color: #171717; }
+.contact-info .icons svg { display: block; width: 32px; height: 32px; flex: none; }
+@media (max-width: 600px) {
+  #servicesraber { display: flex; }
+  #servicesraber > .image { width: 100%; aspect-ratio: 4/3; }
+}
+
+/* FPV depth: original art direction, moving image planes. */
+.fpv-scroll .has-depth-background { position: relative; isolation: isolate; overflow: hidden; background-image: none !important; }
+.depth-background { position: absolute; inset: -12% -4%; background-repeat: no-repeat; background-size: cover; pointer-events: none; z-index: -1; }
+.fpv-scroll #home h1 { backface-visibility: hidden; transform-origin: center; }
+.fpv-scroll .depth-card { transform: var(--depth-transform, none) !important; transform-origin: center; backface-visibility: hidden; }
+.fpv-scroll .depth-card:focus-within { transform: none !important; }
+.fpv-scroll .depth-service-image img { transform: translate3d(0, var(--depth-pan, 0px), 0) scale(1.12); }
+@media (prefers-reduced-motion: reduce) {
+  .depth-background, .fpv-scroll .depth-card, .fpv-scroll #home h1, .fpv-scroll .depth-service-image img { transform: none !important; }
+}
+
+/* Clear portfolio destinations, in the original page's typography. */
+#content .content-header h2 { margin-bottom: 24px; }
+.content-categories { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; width: min(1200px,100%); margin: 0 auto 40px; }
+.content-categories a { display: flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 20px; border: 1px solid #ffffffa0; background: #0009; color: #fff; text-decoration: none; font-size: 15px; text-align: center; }
+.content-categories a:hover, .content-categories a:focus-visible { background: #fff; color: #111; }
+.fpv-content-page #aerial-footage h2 { margin-bottom: 35px; }
+.festival-year-section { background: #0b0b0b; padding: 80px 32px; text-align: center; }
+.festival-year-section h2 { font-size: 32px; margin-bottom: 30px; }
+.festival-year-section .media-row:empty { display: none; }
+.live-productions-page { min-height: 75svh; padding: calc(var(--header-height) + 65px) 24px 90px; text-align: center; }
+.live-productions-page h1 { margin-bottom: 30px; }
+.live-productions-page > p { max-width: 700px; margin: 0 auto 35px; font-size: 17px; }
+.live-contact { display: inline-block; padding: 14px 22px; border: 1px solid #fff9; color: #fff; text-decoration: none; }
+.live-contact:hover { background: #fff; color: #111; }
+@media (max-width: 600px) {
+  .content-categories { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .content-categories a { font-size: 13px; padding: 12px 8px; }
+  .festival-year-section { padding: 55px 20px; }
+  .festival-year-section h2, .live-productions-page h1 { font-size: 27px; }
+}
+@media (max-width: 600px) {
+  .live-productions-page h1 { font-size: clamp(20px, 6vw, 27px); overflow-wrap: anywhere; }
+}
+.festival-film-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: min(1200px,100%); gap: 36px 24px; margin: 0 auto; }
+.festival-film-grid article { min-width: 0; }
+.youtube-preview { position: relative; display: block; width: 100%; height: 100%; color: white; }
+.youtube-preview img { width: 100%; height: 100%; object-fit: cover; }
+.youtube-play { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-50%); display: grid; place-items: center; width: 56px; height: 42px; background: #000b; border: 1px solid #fff9; border-radius: 7px; }
+.youtube-play svg { width: 28px; height: 28px; }
+.youtube-preview:hover .youtube-play { background: #c00; }
+.video-caption, .festival-film-grid h3 { font-size: 17px; line-height: 1.5; margin: 16px auto 7px; text-align: center; font-weight: 400; overflow-wrap: anywhere; }
+.video-meta { font-size: 13px; color: #ccc; text-align: center; }
+.festival-year-description { margin: -10px auto 35px; font-size: 16px; }
+.livestream-list { width: min(1100px,100%); margin: 40px auto; }
+.livestream-list .video-caption { font-size: 22px; }
+@media (max-width: 900px) { .festival-film-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 600px) {
+  .festival-film-grid { grid-template-columns: minmax(0,1fr); gap: 30px; }
+  .livestream-list .video-caption { font-size: 18px; }
+}
+.video-source-link { display: inline-block; margin-top: 10px; padding: 6px 0; color: #ddd; font-size: 13px; text-underline-offset: 4px; }
+.video-source-link:hover { color: #fff; }
+#festival-videos.festival-bg-2 { padding: 70px 32px; text-align: center; }
+.festival-film-grid article { text-align: center; }
+@media (max-width: 600px) {
+  #festival-videos.festival-bg-2 { padding: 60px 20px; }
+}
+
+/* The 2025 photograph is framed independently of the long film collection. */
+#festival-videos.festival-bg-2 { background: #151515; padding: 0 0 150px; }
+.festival-year-intro { position: relative; isolation: isolate; min-height: 650px; height: 78svh; max-height: 950px; overflow: hidden; background: #222; margin-bottom: 110px; }
+.festival-year-intro > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+.festival-year-intro::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 40%,#000c); pointer-events: none; }
+.festival-year-title { position: absolute; z-index: 1; left: 30px; right: 30px; bottom: 65px; }
+#festival-videos .festival-year-title .yt-title { margin: 0; line-height: 1.5; }
+#festival-videos .festival-film-grid { width: min(1200px,calc(100% - 80px)); }
+.festival-film-grid { column-gap: 38px; row-gap: 80px; }
+.festival-film-grid .video-caption { margin-top: 26px; }
+.festival-year-section { padding: 130px 40px 150px; }
+.festival-year-section h2 { margin-bottom: 35px; }
+.festival-year-description { margin-bottom: 70px; }
+@media (max-width: 900px) {
+  .festival-film-grid { column-gap: 26px; row-gap: 65px; }
+}
+@media (max-width: 600px) {
+  .festival-year-intro { min-height: 470px; height: 70svh; margin-bottom: 65px; }
+  .festival-year-intro > img { object-position: 40% 0%; }
+  .festival-year-title { left: 20px; right: 20px; bottom: 38px; }
+  #festival-videos .festival-year-title .yt-title { font-size: 25px; }
+  #festival-videos .festival-film-grid { width: calc(100% - 40px); }
+  #festival-videos.festival-bg-2 { padding-bottom: 90px; }
+  .festival-film-grid { row-gap: 55px; }
+  .festival-year-section { padding: 85px 20px 95px; }
+  .festival-year-description { margin-bottom: 45px; }
+}
+
+/* Photographs continue behind every festival film row. */
+#festival-videos.festival-bg-2, .festival-year-section {
+ background-image:linear-gradient(#080808a8,#080808b8),url('FestivalcontentHintergrundbild2.jpg');
+ background-size:100% 100%,100% auto;
+ background-position:center,center top;
+ background-repeat:no-repeat,repeat-y;
+}
+.festival-year-section { background-image:linear-gradient(#080808b8,#080808c4),url('HintergundbildFestival.jpg'); }
+.festival-film-grid article { text-shadow:0 2px 8px #000; }
+.festival-year-intro { margin-bottom:90px; background:transparent; }
+.festival-film-grid .media-box { border:0; border-radius:0; }
+.video-meta,.video-source-link { color:#f1f1f1; }
+@media(max-width:600px) { .festival-year-intro { margin-bottom:65px; } }
+
+/* The title and films share one photo, without a separate empty hero. */
+#festival-videos .festival-year-intro { min-height:0; height:auto; max-height:none; margin:0; padding:85px 30px 65px; overflow:visible; }
+#festival-videos .festival-year-intro::after { display:none; }
+#festival-videos .festival-year-title { position:relative; inset:auto; }
+#festival-videos .festival-year-title .yt-title { font-size:clamp(25px,3vw,40px); text-shadow:0 2px 15px #000; }
+#festival-videos.festival-bg-2 { background-image:linear-gradient(#0808089c,#080808ad),url('FestivalcontentHintergrundbild2.jpg'); }
+@media(max-width:600px) {
+ #festival-videos .festival-year-intro { padding:60px 20px 45px; }
+}
+
+/* Shared, subtle photographic section transitions. */
+.photo-transition-seam { position:relative; height:0; z-index:5; pointer-events:none; }
+.photo-transition-seam::before {
+ content:''; position:absolute; left:0; right:0; top:-18px; height:36px;
+ -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+ -webkit-mask-image:linear-gradient(transparent,#000 35%,#000 65%,transparent);
+ mask-image:linear-gradient(transparent,#000 35%,#000 65%,transparent);
+}
+@media(max-width:600px) {
+ .photo-transition-seam::before { top:-12px; height:24px; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .photo-transition-seam::before { -webkit-backdrop-filter:none; backdrop-filter:none; }
+}
+
+/* Camera Work uses one photographic backdrop throughout its galleries. */
+.camera-work-page { background:#252525; isolation:isolate; }
+.camera-work-page::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(#080808ad,#080808bf),url('portfolio-camera-live-set.png') center/cover no-repeat; }
+.camera-work-page .project-section { background:transparent; padding-bottom:95px; }
+.camera-work-page .project-header { text-shadow:0 2px 10px #0008; }
+
+/* Paint the photo on the content surface itself, including Safari. */
+.camera-work-page::before { display:none; }
+.camera-work-page main {
+ background:linear-gradient(#08080899,#080808ad),url('portfolio-camera-live-set.png') center top/cover no-repeat;
+ background-attachment:fixed;
+}
+/* A real filter box spans both sides of the seam; no zero-height pseudo layer. */
+.photo-transition-seam {
+ position:relative; height:36px; margin-top:-18px; margin-bottom:-18px; z-index:50;
+ -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+ -webkit-mask-image:linear-gradient(transparent,#000 35%,#000 65%,transparent);
+ mask-image:linear-gradient(transparent,#000 35%,#000 65%,transparent);
+}
+.photo-transition-seam::before { display:none; }
+@media(max-width:600px) {
+ .photo-transition-seam { height:24px; margin-top:-12px; margin-bottom:-12px; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); }
+ .camera-work-page main { background-attachment:scroll; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .photo-transition-seam { -webkit-backdrop-filter:none; backdrop-filter:none; }
+}
+
+
+/* Camera galleries scroll natively; no fixed background or per-card scroll work. */
+.camera-work-page main {
+ background-attachment:scroll;
+ background-size:100% auto;
+ background-repeat:repeat-y;
+ background-position:center top;
+}
+
+/* Each camera project has its own photograph and scrolls with the page. */
+.camera-work-page main { background:none; }
+.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('portfolio-camera-live-set.png') center/cover no-repeat; }
+.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('Dj1.jpeg') center/cover no-repeat; }
+.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('konzert1.jpeg') center/cover no-repeat; }
+.shutdown-backstage { width:min(1200px,calc(100% - 40px)); margin:90px auto 0; padding-bottom:60px; }
+.shutdown-backstage h2 { font-size:28px; font-weight:400; margin-bottom:22px; }
+.shutdown-backstage>p { font-size:16px; margin-bottom:45px; }
+.shutdown-backstage .shutdown-grid { width:100%; margin:0 auto; }
+@media(max-width:600px) {
+ .shutdown-backstage { margin-top:60px; }
+ .shutdown-backstage h2 { font-size:23px; }
+}
+.shutdown-backstage>h2,.shutdown-backstage>p { text-align:center; color:#fff; text-shadow:0 2px 8px #000,0 0 18px #000; }
+/* Explicit project backgrounds, each used once and never tiled. */
+.camera-work-page main { background-image:none; background-repeat:no-repeat; }
+.camera-work-page #film-production { background-image:linear-gradient(#080808ad,#080808bf),url('Film8.jpeg'); background-repeat:no-repeat; }
+.camera-work-page #dj-production { background-repeat:no-repeat; }
+.camera-work-page #concert-production { background-repeat:no-repeat; }
+
+/* Shared production credits, once per festival collection. */
+.festival-credit { color:#fff; font-size:15px; line-height:1.8; text-align:center; text-shadow:0 2px 8px #000; }
+#festival-videos .festival-credit { margin:22px auto 0; }
+#planet-festival-tour-2026 .festival-year-description { margin-bottom:16px; }
+#planet-festival-tour-2026 .festival-credit { margin:0 auto 65px; }
+@media(max-width:600px) {
+ .festival-credit { font-size:13px; padding-inline:10px; }
+ #planet-festival-tour-2026 .festival-credit { margin-bottom:45px; }
+}

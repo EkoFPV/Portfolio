@@ -1,294 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Camera Work | Emil Kogler</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=release-20261124" />
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="refinements.css?v=release-20261124">
+    <script src="script.js?v=release-20261124" defer></script>
+<script src="page-transitions.js?v=release-20261124" defer></script>
 </head>
-
-<body class="preload-lock">
-
+  <body class="camera-work-page">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Emil Kogler</h1>
-            </div>
-
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-
-                    <li>
-                        <a href="index.html#content">Content</a>
-                        <ul class="dropdown">
-                            <li><a href="fpv-content.html">FPV Content</a></li>
-                            <li><a href="aerial-footage.html">Aerial Footage</a></li>
-                            <li><a href="festival-content.html">Festival Content</a></li>
-            
-                            <li><a href="camera-work.html">Camera Work</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="index.html#services">Services</a></li>
-
-                    <li>
-                        <a href="index.html#contact">Contact</a>
-                        <ul class="dropdown">
-                            <li><a href="mailto:eko.salzkammergut.fpv@gmail.com" target="_blank">Email</a></li>
-                            <li><a href="https://youtube.com/eko.fpv" target="_blank">YouTube</a></li>
-                            <li><a href="https://instagram.com/eko.fpv" target="_blank">Instagram</a></li>
-                            <li><a href="index.html#contact">Location</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container"><a class="logo" href="index.html#home">Emil Kogler</a>
+        <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+        <nav class="main-nav" id="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li class="portfolio-menu">
+              <div class="nav-group"><a href="index.html#content">Content</a><button type="button" class="submenu-toggle" aria-expanded="false" aria-controls="portfolio-links" aria-label="Content submenu"><span aria-hidden="true">+</span></button></div>
+              <ul class="dropdown" id="portfolio-links">
+  <li><a href="fpv-content.html">FPV &amp; Aerial Footage</a></li>
+  <li><a href="festival-content.html">Festivals</a></li>
+  <li><a href="camera-work.html">Camera Work</a></li>
+  <li><a href="liveproduktionen.html">Liveproduktionen</a></li>
+</ul>
+            </li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
-   
-
-    <section class="project-section">
-
+    <div class="menu-backdrop" hidden></div>
+    <main id="main">
+      <section class="project-section" id="film-production">
         <div class="project-header">
-            <h2>Film Production</h2>
-            <p>
-                Behind the scenes and moments from film productions,
-                camera setups, shooting environments and on-set impressions.
-            </p>
+          <h1>Film Production</h1>
+          <p>
+            Behind the scenes and moments from film productions,
+            camera setups, shooting environments and on-set impressions.
+          </p>
         </div>
-    
         <div class="film-grid">
-    
-            <div class="camera-item portrait">
-                <img src="Film1.jpeg">
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="Film2.jpeg">
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="Film3.jpeg">
-            </div>
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Film4.mov" type="video/mp4">
-                </video>
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="Film5.JPG">
-            </div>
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Film6.mov" type="video/mp4">
-                </video>
-            </div>
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Film7.mp4" type="video/mp4">
-                </video>
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="Film8.jpeg">
-            </div>
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Film9.mov" type="video/mp4">
-                </video>
-            </div>
-    
+          <div class="camera-item portrait">
+            <img src="Film1.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="Film2.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="Film3.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Film4.jpg" controls playsinline preload="none">
+            <source src="Film4.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <img src="Film5.JPG" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Film6.jpg" controls playsinline preload="none">
+            <source src="Film6.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Film7.jpg" controls playsinline preload="none">
+            <source src="Film7.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <img src="Film8.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Film9.jpg" controls playsinline preload="none">
+            <source src="Film9.mov" type="video/mp4">
+            </video>
+          </div>
         </div>
-    
-    </section>
-    <section class="project-section">
-
+      </section>
+      <div class="photo-transition-seam" aria-hidden="true"></div>
+<section class="project-section" id="dj-production">
         <div class="project-header">
-            <h2>DJ COURSE PRODUCTION</h2>
-            <p>Behind the scenes and production moments from the DJ course project.</p>
+          <h2>DJ COURSE PRODUCTION</h2>
+          <p>Behind the scenes and production moments from the DJ course project.</p>
         </div>
-
         <div class="dj-grid">
-
-            <div class="camera-item portrait">
-                <img src="Dj1.jpeg" alt="">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="Dj2.jpg" alt="">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="Dj3.jpg" alt="">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="Dj4.jpeg" alt="">
-            </div>
-
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Dj5.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Dj6.mov" type="video/mp4">
-                </video>
-            </div>
-
+          <div class="camera-item portrait">
+            <img src="Dj1.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="Dj2.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="Dj3.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="Dj4.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Dj5.jpg" controls playsinline preload="none">
+            <source src="Dj5.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Dj6.jpg" controls playsinline preload="none">
+            <source src="Dj6.mov" type="video/mp4">
+            </video>
+          </div>
         </div>
-
-    </section>
-
-    <section class="project-section">
-
+      </section>
+      <div class="photo-transition-seam" aria-hidden="true"></div>
+<section class="project-section" id="concert-production">
         <div class="project-header">
-            <h2>Concert – Behind the Scenes</h2>
-            <p>
-                Behind the scenes moments from concert productions and live events.
-                Camera work, stage environments and impressions from live music sets.
-            </p>
+          <h2>Concert – Behind the Scenes</h2>
+          <p>
+            Behind the scenes moments from concert productions and live events.
+            Camera work, stage environments and impressions from live music sets.
+          </p>
         </div>
-
         <div class="concert-grid">
-
-            <div class="camera-item portrait">
-                <img src="konzert1.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="konzert2.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="konzert3.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="konzert4.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="konzert5.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="konzert6.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="Konzert7.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="camera-item portrait">
-                <img src="konzert8.jpeg">
-            </div>
-
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="konzert9.mov" type="video/mp4">
-                </video>
-            </div>
-
+          <div class="camera-item portrait">
+            <img src="konzert1.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="konzert2.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="konzert3.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <img src="konzert4.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-konzert5.jpg" controls playsinline preload="none">
+            <source src="konzert5.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <img src="konzert6.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-Konzert7.jpg" controls playsinline preload="none">
+            <source src="Konzert7.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="camera-item portrait">
+            <img src="konzert8.jpeg" alt="Production image" loading="lazy" decoding="async">
+          </div>
+          <div class="camera-item portrait">
+            <video poster="portfolio-posters-konzert9.jpg" controls playsinline preload="none">
+            <source src="konzert9.mov" type="video/mp4">
+            </video>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="project-section">
-        <div class="project-header">
-            <h2>Shutdown Festival</h2>
-            <p>
-                Behind the scenes and camera work during the Shutdown Festival production.
-                FPV drone operations, stage visuals and moments from the festival environment.
-            </p>
-        </div>
-    
-        <div class="shutdown-grid">
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="shutdown1.mp4" type="video/mp4">
-                </video>
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="shutdown2.JPG" alt="Shutdown Festival image 2">
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="shutdown3.jpeg" alt="Shutdown Festival image 3">
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="shutdown4.JPG" alt="Shutdown Festival image 4">
-            </div>
-    
-            <div class="camera-item portrait">
-                <video autoplay muted loop playsinline>
-                    <source src="shutdown5.mov" type="video/mp4">
-                </video>
-            </div>
-    
-            <div class="camera-item portrait">
-                <img src="shutdown6.JPG" alt="Shutdown Festival image 6">
-            </div>
-    
-        </div>
-    </section>
-
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const nav = document.querySelector('.main-nav ul');
-
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('show');
-        });
-
-        window.addEventListener('scroll', () => {
-            nav.classList.remove('show');
-        });
-    </script>
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const preloader = document.querySelector(".preloader");
-
-    setTimeout(() => {
-        preloader.classList.add("hidden");
-        document.body.classList.remove("preload-lock");
-    }, 600);
-
-});
-
-</script>
-</body>
-<div class="preloader">
-    <div class="prop-spinner">
-        <div class="blade b1"></div>
-        <div class="blade b2"></div>
-        <div class="blade b3"></div>
-        <div class="hub"></div>
-    </div>
-  </div>
-
+    </main>
+    <footer id="final-section" class="site-footer">
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#content">Content</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="contact-info">
+        <div class="icons"><a href="https://instagram.com/eko.fpv" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a><a href="https://www.youtube.com/channel/UCX-6oSfQiG4KGLIdnsp00Tg" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 8 6 4-6 4Z"/></svg></a><a href="mailto:eko.salzkammergut.fpv@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6 8 7 8-7"/></svg></a></div>
+        <p>Emil Kogler</p>
+        <p><a href="tel:+436648602945">+43 664 860 29 45</a></p>
+        <p>Salzburg / Wien</p>
+      </div>
+      <div class="footer-legal"><a href="impressum.html">Impressum</a><span>© Emil Kogler</span></div>
+    </footer>
+  </body>
 </html>
