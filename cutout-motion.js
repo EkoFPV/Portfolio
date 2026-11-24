@@ -7,6 +7,7 @@
   const copy = hero?.querySelector('.hero-copy');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const small = matchMedia('(max-width: 600px)');
+  const mobileLayout = matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)');
   const finePointer = matchMedia('(pointer: fine)');
   let frame = 0;
   let pointerX = 0;
@@ -15,7 +16,7 @@
   const clamp = (x, min, max) => Math.max(min, Math.min(max, x));
   function render() {
     frame = 0;
-    if (reduced.matches) return;
+    if (reduced.matches || mobileLayout.matches) return;
     const strength = small.matches ? 0.45 : 1;
     const height = innerHeight;
     const heroRect = hero?.getBoundingClientRect();
@@ -31,7 +32,7 @@
       scene.querySelector('.drone-flight').style.setProperty('--drone-transform', `perspective(1300px) translate3d(${(distance * side * 48 * strength).toFixed(2)}px,${(-distance * 48 * strength).toFixed(2)}px,${((1-Math.abs(distance))*80*strength).toFixed(2)}px) rotateX(${(distance * 13 * strength).toFixed(2)}deg) rotateY(${(distance * side * 20 * strength).toFixed(2)}deg) rotateZ(${(distance * side * 9 * strength).toFixed(2)}deg)`);
     });
   }
-  function schedule() { if (!frame && !reduced.matches) frame = requestAnimationFrame(render); }
+  function schedule() { if (!frame && !reduced.matches && !mobileLayout.matches) frame = requestAnimationFrame(render); }
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target));
     schedule();
@@ -49,12 +50,14 @@
   hero?.addEventListener('pointerleave', () => { pointerX = 0; pointerY = 0; schedule(); });
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule, { passive: true });
-  reduced.addEventListener('change', () => {
-    if (reduced.matches) {
+  function resetMotion() {
+    if (reduced.matches || mobileLayout.matches) {
       cancelAnimationFrame(frame); frame = 0;
       person?.style.removeProperty('--person-transform'); copy?.style.removeProperty('transform');
       scenes.forEach(scene => scene.querySelector('.drone-flight').style.removeProperty('--drone-transform'));
     } else schedule();
-  });
+  }
+  reduced.addEventListener('change', resetMotion);
+  mobileLayout.addEventListener('change', resetMotion);
   schedule();
 })();

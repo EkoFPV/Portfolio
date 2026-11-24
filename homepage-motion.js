@@ -3,6 +3,7 @@
   if (!document.querySelector('.cutout-hero')) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const narrow = matchMedia('(max-width: 600px)');
+  const mobileLayout = matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)');
   const animations = new Set();
   const played = new WeakSet();
   const hero = document.querySelector('.cutout-hero');
@@ -12,7 +13,7 @@
   bar.setAttribute('aria-hidden', 'true');
   document.body.append(bar);
   function reveal(element, delay = 0) {
-    if (played.has(element) || reduced.matches || !element.animate) return;
+    if (played.has(element) || reduced.matches || mobileLayout.matches || !element.animate) return;
     played.add(element);
     const image = element.matches('.category-image');
     const animation = element.animate(image ? [
@@ -47,15 +48,17 @@
     const progress = Math.max(0,Math.min(1,scrollY / Math.max(1,max)));
     const fade = Math.max(0,Math.min(1,-rect.top / Math.max(1,rect.height)));
     bar.style.transform = `scaleX(${progress})`;
-    copy.style.opacity = reduced.matches ? '1' : String(1-Math.min(.9,fade*1.25));
+    copy.style.opacity = reduced.matches || mobileLayout.matches ? '1' : String(1-Math.min(.9,fade*1.25));
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(render); }
   addEventListener('scroll',schedule,{passive:true});
   addEventListener('resize',schedule,{passive:true});
-  reduced.addEventListener('change',() => {
+  function resetAnimations() {
     animations.forEach(animation => animation.cancel());
     animations.clear();
     schedule();
-  });
+  }
+  reduced.addEventListener('change', resetAnimations);
+  mobileLayout.addEventListener('change', resetAnimations);
   schedule();
 })();

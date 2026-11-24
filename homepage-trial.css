@@ -228,3 +228,44 @@
  .service-summary-grid { margin-block:36px 40px; gap:32px; }
 }
 @media(prefers-reduced-motion:reduce) { .category-arrow { transition:none; } }
+
+/* iPhone/Safari: normal-flow cards, no intrinsic grid/percentage-height cycle. */
+@media (max-width:900px), (hover:none), (pointer:coarse) {
+ .homepage-trial #content.work-overview {
+  display:block; height:auto; min-height:0 !important; max-height:none;
+  padding:56px 22px 64px; overflow:visible;
+  background-attachment:scroll;
+ }
+ .homepage-trial #content .content-header { display:block; height:auto; margin:0; }
+ .homepage-trial #content .content-header h2 { margin:0 0 30px; opacity:1; transform:none; }
+ .homepage-trial #content .work-categories {
+  display:block; width:100%; max-width:560px; height:auto; min-height:0; max-height:none;
+  margin:0 auto; padding:0;
+ }
+ .homepage-trial #content .work-category {
+  display:block; width:100%; height:auto; min-height:0; max-height:none;
+  margin:0 0 28px; padding:0; aspect-ratio:auto;
+  position:relative; transform:none !important; backface-visibility:visible;
+  background:#f7f7f7; color:#171717; overflow:hidden;
+ }
+ .homepage-trial #content .work-category:last-child { margin-bottom:0; }
+ .homepage-trial #content .category-image {
+  display:block; position:relative; width:100%; height:0; min-height:0; max-height:none;
+  padding:75% 0 0; margin:0; aspect-ratio:auto; overflow:hidden;
+  opacity:1; transform:none; clip-path:none; -webkit-clip-path:none;
+ }
+ .homepage-trial #content .category-image img {
+  display:block; position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; transform:none !important; transition:none;
+ }
+ .homepage-trial #content .work-category h3 {
+  display:flex; position:relative; inset:auto; align-items:center; justify-content:flex-start;
+  width:100%; height:auto; min-height:72px; margin:0; padding:18px 50px 18px 20px;
+  font-size:16px; line-height:1.5; color:#171717; background:#f7f7f7;
+  opacity:1; transform:none; clip-path:none; -webkit-clip-path:none;
+ }
+ .homepage-trial #content .category-arrow { top:auto; right:19px; bottom:24px; width:23px; height:23px; }
+ .homepage-trial .hero-person-motion,.homepage-trial .hero-copy { transform:none !important; }
+ .homepage-trial #home .hero-copy { opacity:1 !important; }
+ .homepage-trial #about,.homepage-trial #services,.homepage-trial #contact { height:auto; min-height:0 !important; max-height:none; }
+}

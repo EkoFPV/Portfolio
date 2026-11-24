@@ -1,6 +1,7 @@
 /* Scroll-linked depth. Native scrolling, no external animation library. */
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const mobileLayout = window.matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)');
   let dispose = () => {};
   function enableDepth() {
     if (!('IntersectionObserver' in window)) return () => {};
@@ -100,8 +101,9 @@
   }
   function sync() {
     dispose();
-    dispose = reducedMotion.matches ? () => {} : enableDepth();
+    dispose = reducedMotion.matches || mobileLayout.matches ? () => {} : enableDepth();
   }
   reducedMotion.addEventListener('change', sync);
+  mobileLayout.addEventListener('change', sync);
   sync();
 })();
