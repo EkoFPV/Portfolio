@@ -257,3 +257,6 @@
 .homepage-trial .work-category:nth-child(2) .category-image img { object-position:50% 48%; }
 .homepage-trial .work-category:nth-child(3) .category-image img { object-position:50% 62%; }
 .homepage-trial .work-category:nth-child(4) .category-image img { object-position:50% 50%; }
+
+/* Vector icons remain consistent on mobile and desktop. */
+.category-arrow { display:block; width:1em; height:1em; }
