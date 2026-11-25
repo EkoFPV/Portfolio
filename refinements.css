@@ -253,9 +253,9 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 /* Photographs continue behind every festival film row. */
 #festival-videos.festival-bg-2, .festival-year-section {
  background-image:linear-gradient(#080808a8,#080808b8),url('FestivalcontentHintergrundbild2.jpg');
- background-size:100% 100%,100% auto;
+ background-size:cover;
  background-position:center,center top;
- background-repeat:no-repeat,repeat-y;
+ background-repeat:no-repeat;
 }
 .festival-year-section { background-image:linear-gradient(#080808b8,#080808c4),url('HintergundbildFestival.jpg'); }
 .festival-film-grid article { text-shadow:0 2px 8px #000; }
@@ -362,12 +362,20 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
  .main-nav > ul { gap:clamp(14px,1.7vw,25px); }
  .main-nav ul li a { font-size:15px; white-space:nowrap; }
 }
-.festival-film-grid .festival-featured { grid-column:span 2; }
-.festival-film-grid .festival-featured .media-box { max-width:none; }
-.festival-film-grid .festival-featured .video-caption { font-size:21px; }
 @media(max-width:600px) {
- .festival-film-grid .festival-featured { grid-column:auto; }
- .festival-film-grid .festival-featured .video-caption { font-size:19px; }
  .festival-film-grid { row-gap:42px; }
  .festival-credit { max-width:420px; margin-inline:auto; line-height:1.9; }
 }
+
+/* One distinct, non-repeating photograph per collection on every screen size. */
+#festival-content { background:linear-gradient(#08080890,#080808ad),url('FestivalBild3.png') center/cover no-repeat; }
+#festival-content #festival-hero { background:none; }
+#festival-videos.festival-bg-2 { background:linear-gradient(#0808089c,#080808ad),url('FestivalcontentHintergrundbild2.jpg') center top/cover no-repeat; }
+#planet-festival-tour-2026 { background:linear-gradient(#080808a8,#080808b8),url('HintergundbildFestival.jpg') center/cover no-repeat; }
+.fpv-content-page #fpv-content { background:linear-gradient(#08080860,#08080880),url('Hintergrundbild2.png') center/cover no-repeat; }
+.fpv-content-page #aerial-footage { background:linear-gradient(#08080860,#08080880),url('AerialBild4.png') center/cover no-repeat; }
+.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('Film1.jpeg') center/cover no-repeat; }
+.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('Dj1.jpeg') center/cover no-repeat; }
+.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('konzert1.jpeg') center/cover no-repeat; }
+.festival-film-grid > article { grid-column:auto; }
+.festival-film-grid .media-box { aspect-ratio:16/9; transform:none!important; }

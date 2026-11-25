@@ -7,7 +7,7 @@
     if (!('IntersectionObserver' in window)) return () => {};
     const backgrounds = [];
     const active = new Set();
-    const cards = [...document.querySelectorAll('.media-row .media-box, .video-container .video-box, .camera-item, .festival-film-grid .media-box, .livestream-list .media-box, .work-category, .selected-project-grid .media-box')];
+    const cards = [...document.querySelectorAll('.media-row .media-box, .video-container .video-box, .camera-item, .livestream-list .media-box, .work-category, .selected-project-grid .media-box')];
     const serviceImages = [...document.querySelectorAll('#services-details .image:not(.drone-scene)')];
     const hero = document.querySelector('#home');
     const title = hero?.querySelector('h1');
