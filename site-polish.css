@@ -126,3 +126,15 @@ body:not(.homepage-trial) .media-box,body:not(.homepage-trial) .video-box { tran
 }
 
 @media(max-height:500px) and (max-width:900px) { .homepage-trial #home.home-hero { height:auto; min-height:500px; } }
+
+/* Original photographic pixels, full resolution; blend only the outer backdrop. */
+.homepage-trial #home .hero-person-motion img {
+ -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 19%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0%,#000 8%);
+ -webkit-mask-composite:source-in;
+ mask-image:linear-gradient(90deg,transparent 0%,#000 19%,#000 91%,transparent 100%),linear-gradient(180deg,transparent 0%,#000 8%);
+ mask-composite:intersect;
+}
+.equipment-product-image { width:100%; aspect-ratio:4/3; background:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:26px; overflow:hidden; }
+.equipment-product-image img { display:block; width:100%; height:100%; max-height:none; object-fit:contain; padding:24px; box-sizing:border-box; }
+#camera-equipment .equipment-items article:nth-child(2) { order:3; }
+#camera-equipment .equipment-items article:nth-child(4) { order:4; }
