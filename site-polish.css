@@ -42,7 +42,7 @@ body:not(.homepage-trial) .media-box,body:not(.homepage-trial) .video-box { tran
 @media(max-width:900px),(hover:none),(pointer:coarse) {
  /* Preserve the tested Safari normal-flow layout and avoid giant empty chapters. */
  main { min-width:0; }
- .homepage-trial #home.home-hero { height:88vh; height:88svh; min-height:560px; max-height:850px; }
+ .homepage-trial #home.home-hero { height:100vh; height:100dvh; min-height:100svh; max-height:none; }
  .homepage-trial #home .hero-copy { padding-bottom:36px; }
  .homepage-trial .work-category h3 { line-height:1.5; }
  .homepage-trial #about,.homepage-trial #services,.homepage-trial #contact { min-height:0!important; }
@@ -55,7 +55,7 @@ body:not(.homepage-trial) .media-box,body:not(.homepage-trial) .video-box { tran
  .photo-transition-seam { -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
 }
 @media(max-width:600px) {
- .homepage-trial #home.home-hero { height:86vh; height:86svh; min-height:510px; max-height:760px; }
+ .homepage-trial #home.home-hero { height:100vh; height:100dvh; min-height:100svh; max-height:none; }
  .homepage-trial #home .hero-copy { padding:230px 22px 32px; }
  .homepage-trial .hero-disciplines { font-size:1rem; line-height:1.65; max-width:30ch; margin:14px auto 0; }
  .homepage-trial .hero-project-link { font-size:.9375rem; min-height:44px; margin-top:14px; }
@@ -124,3 +124,5 @@ body:not(.homepage-trial) .media-box,body:not(.homepage-trial) .video-box { tran
  .loader-rotor,.loader-track::after { animation:none!important; }
  .loader-track::after { transform:scaleX(.5); transform-origin:left; }
 }
+
+@media(max-height:500px) and (max-width:900px) { .homepage-trial #home.home-hero { height:auto; min-height:500px; } }
