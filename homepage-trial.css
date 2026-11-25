@@ -126,7 +126,7 @@
 
 /* Selected work has its own photographic backdrop. */
 .homepage-trial #selected-works {
-  background: linear-gradient(#080808b8,#080808d9), url('Hintergrundbild4.png') center/cover no-repeat;
+  background: linear-gradient(#080808b8,#080808d9), url('backdrop-hintergrundbild4.webp') center/cover no-repeat;
 }
 /* Services explain the offer; technical specifications live on their own page. */
 .homepage-trial #services .services-content { padding-bottom: 70px; }
@@ -151,7 +151,7 @@
 }
 
 /* A single portfolio chapter with a shared photographic surface. */
-.homepage-trial #content.work-overview { background: linear-gradient(#080808b0,#080808cf),url('Hintergrundbild4.png') center/cover; padding-block: 120px; }
+.homepage-trial #content.work-overview { background: linear-gradient(#080808b0,#080808cf),url('backdrop-hintergrundbild4.webp') center/cover; padding-block: 120px; }
 .homepage-trial #content #selected-works { background: transparent; min-height: 0 !important; padding: 90px 0 0; display: block; }
 .portfolio-label { text-align: center; font-size: 18px; margin: 0 auto 42px; letter-spacing: .06em; }
 .homepage-trial #content .content-header h2 { margin-bottom: 60px; }
@@ -196,7 +196,7 @@
 .homepage-trial #content.work-overview {
  position:relative; isolation:isolate; display:flex; flex-direction:column;
  justify-content:center; padding:clamp(80px,9vw,140px) 40px;
- background:linear-gradient(#08080859,#08080880),url('Hintergrundbild3.png') center center/cover no-repeat;
+ background:linear-gradient(#08080859,#08080880),url('backdrop-hintergrundbild3.webp') center center/cover no-repeat;
 }
 .homepage-trial #content .content-header,.homepage-trial #content .work-categories { position:relative; z-index:1; }
 .homepage-trial #content .content-header h2 { margin:0 auto clamp(36px,5vw,64px); text-shadow:0 2px 14px #0008; }

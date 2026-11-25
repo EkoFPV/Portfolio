@@ -28,7 +28,7 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 .menu-backdrop { position: fixed; inset: var(--header-height) 0 0; z-index: 900; background: rgba(0,0,0,.55); }
 .menu-backdrop[hidden] { display: none; }
 .menu-open { overflow: hidden; }
-#home { height: 100svh; min-height: 600px; max-height: 1100px; background-image: url('Hintergrundbild1.png'); }
+#home { height: 100svh; min-height: 600px; max-height: 1100px; background-image: url('backdrop-hintergrundbild1.webp'); }
 #home h1 { font-size: clamp(36px, 5.3vw, 78px); font-weight: 400; color: #fff; padding: 24px; }
 #about, #services, #contact { height: auto; min-height: 80svh; padding: 110px 0; }
 #about .about-content, #services .services-content, #contact .contact-content { width: 100%; max-width: none; padding: 50px 32px; border-radius: 0; }
@@ -252,12 +252,12 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 
 /* Photographs continue behind every festival film row. */
 #festival-videos.festival-bg-2, .festival-year-section {
- background-image:linear-gradient(#080808a8,#080808b8),url('FestivalcontentHintergrundbild2.jpg');
+ background-image:linear-gradient(#080808a8,#080808b8),url('backdrop-festivalcontenthintergrundbild2.webp');
  background-size:cover;
  background-position:center,center top;
  background-repeat:no-repeat;
 }
-.festival-year-section { background-image:linear-gradient(#080808b8,#080808c4),url('HintergundbildFestival.jpg'); }
+.festival-year-section { background-image:linear-gradient(#080808b8,#080808c4),url('backdrop-hintergundbildfestival.webp'); }
 .festival-film-grid article { text-shadow:0 2px 8px #000; }
 .festival-year-intro { margin-bottom:90px; background:transparent; }
 .festival-film-grid .media-box { border:0; border-radius:0; }
@@ -269,7 +269,7 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 #festival-videos .festival-year-intro::after { display:none; }
 #festival-videos .festival-year-title { position:relative; inset:auto; }
 #festival-videos .festival-year-title .yt-title { font-size:clamp(25px,3vw,40px); text-shadow:0 2px 15px #000; }
-#festival-videos.festival-bg-2 { background-image:linear-gradient(#0808089c,#080808ad),url('FestivalcontentHintergrundbild2.jpg'); }
+#festival-videos.festival-bg-2 { background-image:linear-gradient(#0808089c,#080808ad),url('backdrop-festivalcontenthintergrundbild2.webp'); }
 @media(max-width:600px) {
  #festival-videos .festival-year-intro { padding:60px 20px 45px; }
 }
@@ -291,14 +291,14 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 
 /* Camera Work uses one photographic backdrop throughout its galleries. */
 .camera-work-page { background:#252525; isolation:isolate; }
-.camera-work-page::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(#080808ad,#080808bf),url('portfolio-camera-live-set.png') center/cover no-repeat; }
+.camera-work-page::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; background:linear-gradient(#080808ad,#080808bf),url('backdrop-assets-camera-live-set.webp') center/cover no-repeat; }
 .camera-work-page .project-section { background:transparent; padding-bottom:95px; }
 .camera-work-page .project-header { text-shadow:0 2px 10px #0008; }
 
 /* Paint the photo on the content surface itself, including Safari. */
 .camera-work-page::before { display:none; }
 .camera-work-page main {
- background:linear-gradient(#08080899,#080808ad),url('portfolio-camera-live-set.png') center top/cover no-repeat;
+ background:linear-gradient(#08080899,#080808ad),url('backdrop-assets-camera-live-set.webp') center top/cover no-repeat;
  background-attachment:fixed;
 }
 /* A real filter box spans both sides of the seam; no zero-height pseudo layer. */
@@ -328,9 +328,9 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 
 /* Each camera project has its own photograph and scrolls with the page. */
 .camera-work-page main { background:none; }
-.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('portfolio-camera-live-set.png') center/cover no-repeat; }
-.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('Dj1.jpeg') center/cover no-repeat; }
-.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('konzert1.jpeg') center/cover no-repeat; }
+.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-assets-camera-live-set.webp') center/cover no-repeat; }
+.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-dj1.webp') center/cover no-repeat; }
+.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-konzert1.webp') center/cover no-repeat; }
 .shutdown-backstage { width:min(1200px,calc(100% - 40px)); margin:90px auto 0; padding-bottom:60px; }
 .shutdown-backstage h2 { font-size:28px; font-weight:400; margin-bottom:22px; }
 .shutdown-backstage>p { font-size:16px; margin-bottom:45px; }
@@ -342,7 +342,7 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 .shutdown-backstage>h2,.shutdown-backstage>p { text-align:center; color:#fff; text-shadow:0 2px 8px #000,0 0 18px #000; }
 /* Explicit project backgrounds, each used once and never tiled. */
 .camera-work-page main { background-image:none; background-repeat:no-repeat; }
-.camera-work-page #film-production { background-image:linear-gradient(#080808ad,#080808bf),url('Film8.jpeg'); background-repeat:no-repeat; }
+.camera-work-page #film-production { background-image:linear-gradient(#080808ad,#080808bf),url('backdrop-film8.webp'); background-repeat:no-repeat; }
 .camera-work-page #dj-production { background-repeat:no-repeat; }
 .camera-work-page #concert-production { background-repeat:no-repeat; }
 
@@ -368,14 +368,14 @@ header .logo { color: #fff; text-decoration: none; font-size: 26px; font-weight:
 }
 
 /* One distinct, non-repeating photograph per collection on every screen size. */
-#festival-content { background:linear-gradient(#08080890,#080808ad),url('FestivalBild3.png') center/cover no-repeat; }
+#festival-content { background:linear-gradient(#08080890,#080808ad),url('backdrop-festivalbild3.webp') center/cover no-repeat; }
 #festival-content #festival-hero { background:none; }
-#festival-videos.festival-bg-2 { background:linear-gradient(#0808089c,#080808ad),url('FestivalcontentHintergrundbild2.jpg') center top/cover no-repeat; }
-#planet-festival-tour-2026 { background:linear-gradient(#080808a8,#080808b8),url('HintergundbildFestival.jpg') center/cover no-repeat; }
-.fpv-content-page #fpv-content { background:linear-gradient(#08080860,#08080880),url('Hintergrundbild2.png') center/cover no-repeat; }
-.fpv-content-page #aerial-footage { background:linear-gradient(#08080860,#08080880),url('AerialBild4.png') center/cover no-repeat; }
-.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('Film1.jpeg') center/cover no-repeat; }
-.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('Dj1.jpeg') center/cover no-repeat; }
-.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('konzert1.jpeg') center/cover no-repeat; }
+#festival-videos.festival-bg-2 { background:linear-gradient(#0808089c,#080808ad),url('backdrop-festivalcontenthintergrundbild2.webp') center top/cover no-repeat; }
+#planet-festival-tour-2026 { background:linear-gradient(#080808a8,#080808b8),url('backdrop-hintergundbildfestival.webp') center/cover no-repeat; }
+.fpv-content-page #fpv-content { background:linear-gradient(#08080860,#08080880),url('backdrop-hintergrundbild2.webp') center/cover no-repeat; }
+.fpv-content-page #aerial-footage { background:linear-gradient(#08080860,#08080880),url('backdrop-aerialbild4.webp') center/cover no-repeat; }
+.camera-work-page #film-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-film1.webp') center/cover no-repeat; }
+.camera-work-page #dj-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-dj1.webp') center/cover no-repeat; }
+.camera-work-page #concert-production { background:linear-gradient(#080808ad,#080808bf),url('backdrop-konzert1.webp') center/cover no-repeat; }
 .festival-film-grid > article { grid-column:auto; }
 .festival-film-grid .media-box { aspect-ratio:16/9; transform:none!important; }

@@ -1,0 +1,122 @@
+/* Readable text, quiet photographic surfaces, lightweight page entry. */
+:root {
+ --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+ --font-heading:'Julius Sans One',Arial,sans-serif;
+}
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body,p,li,a,button,summary,input,textarea { font-family:var(--font-body)!important; }
+h1,h2,h3,h4,header .logo,.main-nav a,.menu-toggle,.footer-nav a {
+ font-family:var(--font-heading)!important;
+}
+body { font-size:1rem; line-height:1.7; }
+p,li { line-height:1.75; }
+main p { text-wrap:pretty; }
+h1,h2,h3 { text-wrap:balance; }
+.project-header p,.festival-year-description,.shutdown-backstage>p { max-width:60ch; margin-inline:auto; font-size:1rem; color:#f1f1f1; }
+.video-meta,.festival-credit { font-size:.9375rem; line-height:1.7; letter-spacing:.015em; }
+.video-source-link { font-size:.9375rem; min-height:44px; padding:10px 0; }
+.festival-film-grid article { text-shadow:0 1px 5px #0008; }
+.video-caption,.festival-film-grid h3 { line-height:1.5; }
+.homepage-trial .hero-disciplines { font-size:clamp(1rem,1.5vw,1.25rem); letter-spacing:0; }
+.homepage-trial #about .about-content p { max-width:62ch; }
+.service-summary-grid p { max-width:34ch; }
+.footer-legal { font-size:.875rem; }
+.contact-info p { line-height:1.7; }
+.site-footer { color:#242424; }
+/* No expensive fixed backgrounds or per-card transforms on project pages. */
+body:not(.homepage-trial) main section { background-attachment:scroll; }
+body:not(.homepage-trial) .media-box,body:not(.homepage-trial) .video-box { transform:none!important; }
+/* Keep photographic contrast behind text consistent without hiding the photo. */
+.homepage-trial #content.work-overview {
+ background-image:linear-gradient(#1117,#1118),url('backdrop-hintergrundbild3.webp');
+}
+#festival-content { background-image:linear-gradient(#1118,#1119),url('backdrop-festivalbild3.webp'); }
+#festival-content #festival-hero { background:none; }
+#festival-videos.festival-bg-2 { background-image:linear-gradient(#1117,#1119),url('backdrop-festivalcontenthintergrundbild2.webp'); }
+#planet-festival-tour-2026 { background-image:linear-gradient(#1117,#1119),url('backdrop-hintergundbildfestival.webp'); }
+.fpv-content-page #fpv-content { background-image:linear-gradient(#1117,#1118),url('backdrop-hintergrundbild2.webp'); }
+.fpv-content-page #aerial-footage { background-image:linear-gradient(#1117,#1118),url('backdrop-aerialbild4.webp'); }
+.camera-work-page #film-production { background-image:linear-gradient(#1118,#1119),url('backdrop-film1.webp'); }
+.camera-work-page #dj-production { background-image:linear-gradient(#1118,#1119),url('backdrop-dj1.webp'); }
+.camera-work-page #concert-production { background-image:linear-gradient(#1118,#1119),url('backdrop-konzert1.webp'); }
+/* Small brand cue; the page stays visible and usable beneath it. */
+.site-loader {
+ display:flex; align-items:center; gap:12px; position:fixed;
+ top:calc(var(--header-height) + 16px); right:max(22px,env(safe-area-inset-right));
+ z-index:1010; width:190px; padding:13px 16px 17px;
+ color:#fff; background:#171717ed; border:1px solid #ffffff40;
+ border-radius:4px; box-shadow:0 8px 24px #0002;
+ pointer-events:none; opacity:0; visibility:hidden;
+ transform:translateY(-6px); transition:opacity 180ms ease,transform 180ms ease,visibility 180ms;
+}
+.is-loading .site-loader { opacity:1; visibility:visible; transform:translateY(0); }
+.loader-aperture { width:28px; height:28px; flex:none; transform-origin:center; }
+.is-loading .loader-aperture { animation:aperture-turn 1500ms cubic-bezier(.45,0,.25,1) infinite; }
+.loader-wordmark { font-family:var(--font-heading)!important; font-size:12px; letter-spacing:.12em; white-space:nowrap; }
+.loader-track { position:absolute; left:16px; right:16px; bottom:7px; height:1px; overflow:hidden; background:#ffffff35; }
+.loader-track::after { content:''; position:absolute; inset:0; background:#fff; transform:translateX(-100%); }
+.is-loading .loader-track::after { animation:loader-sweep 1000ms ease-in-out infinite; }
+@keyframes aperture-turn { from { transform:rotate(0); } to { transform:rotate(120deg); } }
+@keyframes loader-sweep { to { transform:translateX(100%); } }
+@media(max-width:900px),(hover:none),(pointer:coarse) {
+ /* Preserve the tested Safari normal-flow layout and avoid giant empty chapters. */
+ main { min-width:0; }
+ .homepage-trial #home.home-hero { height:88vh; height:88svh; min-height:560px; max-height:850px; }
+ .homepage-trial #home .hero-copy { padding-bottom:36px; }
+ .homepage-trial .work-category h3 { line-height:1.5; }
+ .homepage-trial #about,.homepage-trial #services,.homepage-trial #contact { min-height:0!important; }
+ #festival-hero { padding-top:calc(var(--header-height) + 44px); }
+ #festival-videos .festival-year-intro { padding-top:56px; padding-bottom:34px; }
+ #festival-videos .festival-year-title .yt-title { font-size:clamp(1.625rem,4.8vw,2rem); }
+ .festival-year-section { padding-block:60px 72px; }
+ .festival-film-grid { row-gap:38px; }
+ .project-header { margin-bottom:28px; }
+ .photo-transition-seam { -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); }
+}
+@media(max-width:600px) {
+ .homepage-trial #home.home-hero { height:86vh; height:86svh; min-height:510px; max-height:760px; }
+ .homepage-trial #home .hero-copy { padding:230px 22px 32px; }
+ .homepage-trial .hero-disciplines { font-size:1rem; line-height:1.65; max-width:30ch; margin:14px auto 0; }
+ .homepage-trial .hero-project-link { font-size:.9375rem; min-height:44px; margin-top:14px; }
+ .homepage-trial #about .about-content,.homepage-trial #contact .contact-content { padding:36px 22px; }
+ .homepage-trial #about .about-content p { font-size:1rem; line-height:1.8; }
+ .project-section { padding:52px 22px 64px; }
+ .project-section:first-of-type { padding-top:calc(var(--header-height) + 44px); }
+ .project-header h1,.project-header h2 { font-size:clamp(1.625rem,6.6vw,2rem); }
+ .film-grid,.dj-grid,.concert-grid,.shutdown-grid { grid-template-columns:minmax(0,1fr); gap:22px; width:100%; max-width:440px; }
+ .shutdown-backstage { width:100%; margin-top:48px; padding-bottom:0; }
+ .shutdown-backstage>h2 { font-size:1.5rem; }
+ #fpv-content h1 { font-size:clamp(1.5rem,6.3vw,1.875rem); }
+ .festival-credit { max-width:34ch; font-size:.9375rem; padding-inline:0; }
+ .video-meta { font-size:.875rem; }
+ .video-source-link { font-size:.9375rem; }
+ .festival-film-grid .media-box { max-width:none!important; }
+ .site-loader { top:calc(var(--header-height) + 10px); right:14px; width:174px; gap:10px; padding:10px 12px 15px; }
+ .loader-aperture { width:24px; height:24px; }
+ .loader-wordmark { font-size:11px; }
+ .loader-track { left:12px; right:12px; }
+}
+@media(max-width:360px) {
+ header .logo { font-size:18px; }
+ .js .menu-toggle { gap:8px; font-size:13px; padding-left:8px; }
+ .homepage-trial #content.work-overview { padding-inline:18px; }
+ .homepage-trial #content .work-category h3 { padding-left:16px; font-size:15px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .site-loader,.loader-aperture,.loader-track::after { animation:none!important; transition:none!important; }
+ .loader-track::after { transform:scaleX(.55); transform-origin:left; }
+}
+
+.live-productions-page { background:linear-gradient(#1118,#1119),url('backdrop-assets-camera-live-set.webp') center/cover no-repeat; }
+/* Instagram adds its own inline sizing after loading; keep it within the card. */
+.fpv-content-page .instagram-media { width:100%!important; max-width:100%!important; min-width:0!important; }
+.fpv-content-page #fpv-content .vertical-videos .video-box { max-width:340px!important; }
+@media(min-width:601px) and (max-width:900px) {
+ .film-grid,.dj-grid,.concert-grid,.shutdown-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+ .homepage-trial #home .hero-person-motion img { height:82%; left:60%; }
+}
+@media(max-width:360px) {
+ .homepage-trial #home .hero-person-motion img { height:74%; }
+}

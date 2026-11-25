@@ -1,5 +1,6 @@
 /* Scroll-linked depth. Native scrolling, no external animation library. */
 (() => {
+  if (!document.body.classList.contains('homepage-trial')) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mobileLayout = window.matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)');
   let dispose = () => {};

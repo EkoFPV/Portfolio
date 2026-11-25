@@ -1,3 +1,6 @@
+/* Julius Sans One, SIL Open Font License; served locally with font-display swap. */
+@font-face { font-family:'Julius Sans One'; font-style:normal; font-weight:400; font-display:swap; src:url('julius-sans-one-latin-ext.woff2') format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family:'Julius Sans One'; font-style:normal; font-weight:400; font-display:swap; src:url('julius-sans-one-latin.woff2') format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
 * {
     margin: 0;
     padding: 0;
@@ -76,7 +79,7 @@ p {
 /* Hauptbereich */
 #home {
     height: 100vh;
-    background: url('Hintergrundbild1.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild1.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,7 +130,7 @@ p {
 /* About Me Sektion */
 #about {
     height: 100vh;
-    background: url('Hintergrundbild2.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild2.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,7 +166,7 @@ p {
 
 /* Video Content Sektion */
 #content {
-    background: url('Hintergrundbild3.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild3.webp') no-repeat center center/cover;
     /*height: 100vh;*/
     min-height: auto !important;
     padding: 40px 20px;
@@ -274,7 +277,7 @@ p {
 /* Aerial Footage Sektion */
 /* Aerial Footage Hintergrund */
 #aerial-footage {
-    background: url('Hintergrundbild4.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild4.webp') no-repeat center center/cover;
     padding: 250px 50px;
     text-align: center;
     color: #fff;
@@ -327,7 +330,7 @@ p {
 /* Services Sektion */
 #services {
     height: 100vh;
-    background: url('Hintergrundbild5.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild5.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -510,7 +513,7 @@ p {
 /* Contact Sektion */
 #contact {
     height: 100vh;
-    background: url('Hintergrundbild6.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild6.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -757,7 +760,7 @@ p {
 
 /* FPV Content Hintergrund */
 #fpv-content {
-    background: url('Hintergrundbild2.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild2.webp') no-repeat center center/cover;
     padding: 40px 20px;
     text-align: center;
     color: #fff;
@@ -865,7 +868,7 @@ p {
 
 /* Music Videos Hintergrund */
 #musik-videos {
-    background: url('Hintergrundbild4.png') no-repeat center center/cover;
+    background: url('backdrop-hintergrundbild4.webp') no-repeat center center/cover;
     padding: 80px 20px;
     text-align: center;
     color: #fff;
@@ -887,7 +890,7 @@ p {
 
 /* 1) HERO (erstes Hintergrundbild) */
 #festival-hero {
-    background-image: url('HintergundbildFestival.jpg');
+    background-image: url('backdrop-hintergundbildfestival.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -907,7 +910,7 @@ p {
 
 /* 2) VIDEOS (zweites Hintergrundbild) – direkt anschließen */
 #festival-videos.festival-bg-2 {
-    background-image: url('FestivalcontentHintergrundbild2.jpg');
+    background-image: url('backdrop-festivalcontenthintergrundbild2.webp');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1172,7 +1175,7 @@ transform:scale(1.03);
 
 @media (max-width: 900px) {
     #camera-hero{
-        background:url("Hintergrundbild4.png") center/cover no-repeat;
+        background:url('backdrop-hintergrundbild4.webp') center/cover no-repeat;
         height:300px;
         display:flex;
         align-items:center;
